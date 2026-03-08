@@ -106,7 +106,7 @@
         "collection": "",
         "products_to_show": 3,
         "button_text": "View All Products",
-        "button_link": ""
+        "button_link": "shopify://collections/all"
       }
     },
     "how-it-works": {
