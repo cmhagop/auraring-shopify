@@ -1,0 +1,135 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "badge_text": "Next-Gen Wearable",
+        "heading": "Precision health.<br>On your finger.",
+        "subheading": "Track sleep, heart rate, HRV, and blood oxygen with clinical-grade accuracy — all from a ring you never need to take off.",
+        "button_primary_text": "Shop Now",
+        "button_primary_link": "/collections/all",
+        "button_secondary_text": "Learn More",
+        "button_secondary_link": ""
+      }
+    },
+    "value-proposition": {
+      "type": "value-proposition",
+      "settings": {
+        "badge_text": "Why AURARING",
+        "heading": "Designed for the modern human",
+        "subheading": "The most advanced health sensors, engineered into the most minimal form factor."
+      },
+      "blocks": {
+        "vp-heart": { "type": "card", "settings": { "icon": "heart", "title": "Heart Rate Monitoring", "text": "Continuous 24/7 heart rate tracking with clinical-grade PPG sensors and real-time alerts." } },
+        "vp-sleep": { "type": "card", "settings": { "icon": "moon", "title": "Advanced Sleep Analysis", "text": "Detailed sleep staging, quality scores, and circadian rhythm insights every morning." } },
+        "vp-activity": { "type": "card", "settings": { "icon": "activity", "title": "Activity Intelligence", "text": "Steps, calories, and active minutes — without a bulky wristband weighing you down." } },
+        "vp-battery": { "type": "card", "settings": { "icon": "battery", "title": "7-Day Battery Life", "text": "Up to 7 days on a single charge. Full charge in under 80 minutes. No charging anxiety." } }
+      },
+      "block_order": ["vp-heart", "vp-sleep", "vp-activity", "vp-battery"]
+    },
+    "product-showcase": {
+      "type": "product-showcase",
+      "settings": {
+        "badge_text": "The Collection",
+        "heading": "Meet AURARING",
+        "subheading": "Premium wearable technology, refined to its purest form.",
+        "products_to_show": 3,
+        "button_text": "View All Products",
+        "button_link": "/collections/all"
+      },
+      "blocks": {
+        "p1": { "type": "product_placeholder", "settings": { "title": "AURARING — Stealth Black", "price": "$299.00" } },
+        "p2": { "type": "product_placeholder", "settings": { "title": "AURARING — Titanium Silver", "price": "$349.00" } },
+        "p3": { "type": "product_placeholder", "settings": { "title": "AURARING — Graphite Pro", "price": "$349.00" } }
+      },
+      "block_order": ["p1", "p2", "p3"]
+    },
+    "how-it-works": {
+      "type": "how-it-works",
+      "settings": {
+        "badge_text": "Simple Setup",
+        "heading": "How it works",
+        "subheading": "From unboxing to insight in three simple steps."
+      },
+      "blocks": {
+        "s1": { "type": "step", "settings": { "title": "Find your size", "text": "Use our free sizing kit to determine your perfect fit. Precision matters." } },
+        "s2": { "type": "step", "settings": { "title": "Wear it daily", "text": "Slip it on and forget it's there. AURARING works around the clock — silently." } },
+        "s3": { "type": "step", "settings": { "title": "Unlock your data", "text": "Open the app each morning for your Readiness Score, sleep analysis, and trends." } }
+      },
+      "block_order": ["s1", "s2", "s3"]
+    },
+    "metrics-dashboard": {
+      "type": "metrics-dashboard",
+      "settings": {
+        "badge_text": "Biometrics",
+        "heading": "Your body, quantified",
+        "subheading": "Real-time biometric insights delivered to your fingertip."
+      },
+      "blocks": {
+        "m1": { "type": "metric", "settings": { "icon": "heart", "value": "72 bpm", "label": "Resting Heart Rate", "progress": 85 } },
+        "m2": { "type": "metric", "settings": { "icon": "moon", "value": "8h 12m", "label": "Sleep Duration", "progress": 90 } },
+        "m3": { "type": "metric", "settings": { "icon": "brain", "value": "48 ms", "label": "HRV Score", "progress": 70 } },
+        "m4": { "type": "metric", "settings": { "icon": "droplet", "value": "98%", "label": "Blood Oxygen (SpO₂)", "progress": 98 } }
+      },
+      "block_order": ["m1", "m2", "m3", "m4"]
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {
+        "badge_text": "Reviews",
+        "heading": "What our members say"
+      },
+      "blocks": {
+        "t1": { "type": "review", "settings": { "stars": 5, "quote": "AURARING completely changed how I understand my body. The sleep insights alone were worth it.", "author": "Alex M.", "role": "Verified Buyer" } },
+        "t2": { "type": "review", "settings": { "stars": 5, "quote": "I've tried every wearable on the market. Nothing comes close to the design and data quality of AURARING.", "author": "Sarah K.", "role": "Fitness Coach" } },
+        "t3": { "type": "review", "settings": { "stars": 5, "quote": "Discreet, elegant, and incredibly accurate. I wear it everywhere — even formal events.", "author": "James W.", "role": "Verified Buyer" } }
+      },
+      "block_order": ["t1", "t2", "t3"]
+    },
+    "lifestyle": {
+      "type": "lifestyle",
+      "settings": {
+        "badge_text": "Lifestyle",
+        "heading": "Wear it everywhere",
+        "subheading": "From the boardroom to the gym. From sunrise to deep sleep. AURARING stays with you through every moment that matters.",
+        "button_text": "Explore AURARING",
+        "button_link": "/collections/all"
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {
+        "badge_text": "FAQ",
+        "heading": "Frequently asked questions"
+      },
+      "blocks": {
+        "q1": { "type": "question", "settings": { "question": "What does AURARING track?", "answer": "<p>AURARING tracks heart rate, heart rate variability (HRV), blood oxygen saturation (SpO₂), skin temperature, sleep stages, daily activity, and a composite Readiness Score — all from a lightweight titanium ring.</p>" } },
+        "q2": { "type": "question", "settings": { "question": "How long does the battery last?", "answer": "<p>Up to 7 days on a single charge, depending on usage patterns. It fully recharges in approximately 80 minutes on the included wireless charging dock.</p>" } },
+        "q3": { "type": "question", "settings": { "question": "Is it waterproof?", "answer": "<p>Yes. AURARING is water-resistant up to 100 meters (10 ATM). You can shower, swim, and train without ever removing it.</p>" } },
+        "q4": { "type": "question", "settings": { "question": "How do I find my ring size?", "answer": "<p>We ship a complimentary sizing kit within 24 hours of your request. We recommend wearing the sizing ring for at least a full day — including overnight — before placing your order.</p>" } },
+        "q5": { "type": "question", "settings": { "question": "Does it work with Apple Health and Google Fit?", "answer": "<p>Absolutely. AURARING syncs natively with Apple Health, Google Fit, and our standalone companion app — available on both iOS and Android.</p>" } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5"]
+    },
+    "final-cta": {
+      "type": "final-cta",
+      "settings": {
+        "heading": "Ready to know yourself better?",
+        "subheading": "Join thousands who have made AURARING part of their daily ritual.",
+        "button_text": "Shop AURARING",
+        "button_link": "/collections/all"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "value-proposition",
+    "product-showcase",
+    "how-it-works",
+    "metrics-dashboard",
+    "testimonials",
+    "lifestyle",
+    "faq",
+    "final-cta"
+  ]
+}

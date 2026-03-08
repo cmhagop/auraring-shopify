@@ -1,0 +1,37 @@
+{%- if section.settings.show_bar -%}
+  <div class="announcement-bar" data-section-id="{{ section.id }}">
+    <span>{{ section.settings.text }}</span>
+    {%- if section.settings.show_close -%}
+      <button class="announcement-bar__close" data-announcement-close aria-label="Dismiss">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    {%- endif -%}
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "class": "announcement-section",
+  "settings": [
+    { "type": "checkbox", "id": "show_bar", "label": "Show announcement bar", "default": true },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Announcement text",
+      "default": "Free worldwide shipping · 30-day risk-free trial"
+    },
+    { "type": "checkbox", "id": "show_close", "label": "Show dismiss button", "default": true }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,88 @@
+<header class="header" data-section-id="{{ section.id }}">
+  <div class="header__inner">
+    <a href="/" class="header__logo">
+      {%- if section.settings.logo -%}
+        <img
+          src="{{ section.settings.logo | image_url: width: 200 }}"
+          alt="{{ shop.name }}"
+          width="120"
+          loading="eager"
+        >
+      {%- else -%}
+        {{ section.settings.logo_text | default: shop.name }}
+      {%- endif -%}
+    </a>
+
+    <nav class="header__nav" role="navigation" aria-label="Main">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'nav_link' -%}
+          <a href="{{ block.settings.link }}" {{ block.shopify_attributes }}>{{ block.settings.label }}</a>
+        {%- endif -%}
+      {%- endfor -%}
+    </nav>
+
+    <div class="header__actions">
+      <a href="/cart" class="header__cart-link" aria-label="Cart ({{ cart.item_count }} items)">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+        {%- if cart.item_count > 0 -%}
+          <span class="header__cart-count">{{ cart.item_count }}</span>
+        {%- endif -%}
+      </a>
+      <button class="header__menu-toggle" data-menu-toggle aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav">
+  <button class="mobile-nav__close" data-mobile-close aria-label="Close">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
+  {%- for block in section.blocks -%}
+    {%- if block.type == 'nav_link' -%}
+      <a href="{{ block.settings.link }}">{{ block.settings.label }}</a>
+    {%- endif -%}
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "Header",
+  "class": "header-section",
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logo image" },
+    { "type": "text", "id": "logo_text", "label": "Logo text (fallback)", "default": "AURARING" }
+  ],
+  "blocks": [
+    {
+      "type": "nav_link",
+      "name": "Navigation link",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Shop" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,93 @@
+<section class="section-spacing" data-section-id="{{ section.id }}">
+  <div class="page-width">
+    <div class="testimonials__header reveal">
+      {%- if section.settings.badge_text != blank -%}
+        <div style="margin-bottom:16px">
+          <span class="badge">{{ section.settings.badge_text }}</span>
+        </div>
+      {%- endif -%}
+      <h2>{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="testimonials__grid reveal-children">
+      {%- for block in section.blocks -%}
+        <div class="testimonial-card" {{ block.shopify_attributes }}>
+          <div class="testimonial-card__stars">
+            {%- assign star_count = block.settings.stars | default: 5 -%}
+            {%- for i in (1..star_count) -%}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            {%- endfor -%}
+          </div>
+          <p class="testimonial-card__quote">"{{ block.settings.quote }}"</p>
+          <div class="testimonial-card__author">{{ block.settings.author }}</div>
+          <div class="testimonial-card__role">{{ block.settings.role }}</div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "tag": "section",
+  "class": "testimonials-section",
+  "settings": [
+    { "type": "text", "id": "badge_text", "label": "Badge text", "default": "Reviews" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What our members say" }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        { "type": "range", "id": "stars", "label": "Star rating", "min": 1, "max": 5, "step": 1, "default": 5 },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "AURARING completely changed how I understand my body."
+        },
+        { "type": "text", "id": "author", "label": "Author name", "default": "Alex M." },
+        { "type": "text", "id": "role", "label": "Role / title", "default": "Verified Buyer" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "quote": "AURARING completely changed how I understand my body. The sleep insights alone were worth it.",
+            "author": "Alex M.",
+            "role": "Verified Buyer"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "quote": "I've tried every wearable on the market. Nothing comes close to the design and data quality of AURARING.",
+            "author": "Sarah K.",
+            "role": "Fitness Coach"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "quote": "Discreet, elegant, and incredibly accurate. I wear it everywhere — even formal events.",
+            "author": "James W.",
+            "role": "Verified Buyer"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

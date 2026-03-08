@@ -1,0 +1,142 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "AURARING",
+    "theme_version": "1.0.0",
+    "theme_author": "AURARING",
+    "theme_documentation_url": "https://auraring.com",
+    "theme_support_url": "https://auraring.com/support"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Primary palette"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background",
+        "default": "#0a0a0a"
+      },
+      {
+        "type": "color",
+        "id": "color_background_card",
+        "label": "Card / surface",
+        "default": "#111111"
+      },
+      {
+        "type": "color",
+        "id": "color_background_elevated",
+        "label": "Elevated surface",
+        "default": "#1a1a1a"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Primary text",
+        "default": "#f0f0f0"
+      },
+      {
+        "type": "color",
+        "id": "color_text_muted",
+        "label": "Secondary / muted text",
+        "default": "#808088"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent (platinum)",
+        "default": "#b8b8c0"
+      },
+      {
+        "type": "color",
+        "id": "color_border",
+        "label": "Border / divider",
+        "default": "#1e1e22"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "font_heading",
+        "label": "Heading font",
+        "default": "outfit_n4"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_body",
+        "label": "Body font",
+        "default": "inter_n4"
+      }
+    ]
+  },
+  {
+    "name": "Layout",
+    "settings": [
+      {
+        "type": "range",
+        "id": "page_width",
+        "label": "Page width",
+        "min": 1000,
+        "max": 1600,
+        "step": 50,
+        "default": 1200,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "section_spacing",
+        "label": "Vertical section spacing",
+        "min": 40,
+        "max": 160,
+        "step": 10,
+        "default": 100,
+        "unit": "px"
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Accounts"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram",
+        "label": "Instagram URL"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter",
+        "label": "X / Twitter URL"
+      },
+      {
+        "type": "text",
+        "id": "social_tiktok",
+        "label": "TikTok URL"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube",
+        "label": "YouTube URL"
+      }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon image"
+      }
+    ]
+  }
+]

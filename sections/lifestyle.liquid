@@ -1,0 +1,53 @@
+<section class="lifestyle section-spacing" data-section-id="{{ section.id }}">
+  <div class="lifestyle__bg">
+    {%- if section.settings.background_image -%}
+      <img src="{{ section.settings.background_image | image_url: width: 2400 }}" alt="" loading="lazy">
+    {%- else -%}
+      <img src="{{ 'lifestyle-bg.png' | asset_url }}" alt="" loading="lazy">
+    {%- endif -%}
+  </div>
+  <div class="lifestyle__overlay"></div>
+  <div class="page-width">
+    <div class="lifestyle__content reveal">
+      {%- if section.settings.badge_text != blank -%}
+        <div style="margin-bottom:16px">
+          <span class="badge">{{ section.settings.badge_text }}</span>
+        </div>
+      {%- endif -%}
+      <h2 class="lifestyle__heading">{{ section.settings.heading }}</h2>
+      {%- if section.settings.subheading != blank -%}
+        <p class="lifestyle__subheading">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+      {%- if section.settings.button_text != blank -%}
+        {%- render 'button',
+          label: section.settings.button_text,
+          url: section.settings.button_link,
+          style: 'primary',
+          size: 'lg'
+        -%}
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Lifestyle",
+  "tag": "section",
+  "class": "lifestyle-section",
+  "settings": [
+    { "type": "image_picker", "id": "background_image", "label": "Background image" },
+    { "type": "text", "id": "badge_text", "label": "Badge text", "default": "Lifestyle" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Wear it everywhere" },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "From the boardroom to the gym. From sunrise to deep sleep. AURARING stays with you through every moment that matters."
+    },
+    { "type": "text", "id": "button_text", "label": "Button text", "default": "Explore AURARING" },
+    { "type": "url", "id": "button_link", "label": "Button link", "default": "/collections/all" }
+  ],
+  "presets": [{ "name": "Lifestyle" }]
+}
+{% endschema %}

@@ -1,0 +1,43 @@
+{%- comment -%}
+  Button snippet — reusable across sections
+  Usage: {% render 'button', label: 'Shop Now', url: '/collections/all', style: 'primary', size: 'lg' %}
+  Params: label, url, style (primary|secondary|accent), size (sm|lg), full, type, disabled
+{%- endcomment -%}
+
+{%- liquid
+  assign btn_class = 'btn'
+  case style
+    when 'primary'
+      assign btn_class = btn_class | append: ' btn--primary'
+    when 'secondary'
+      assign btn_class = btn_class | append: ' btn--secondary'
+    when 'accent'
+      assign btn_class = btn_class | append: ' btn--accent'
+    else
+      assign btn_class = btn_class | append: ' btn--primary'
+  endcase
+  if size == 'sm'
+    assign btn_class = btn_class | append: ' btn--sm'
+  elsif size == 'lg'
+    assign btn_class = btn_class | append: ' btn--lg'
+  endif
+  if full
+    assign btn_class = btn_class | append: ' btn--full'
+  endif
+-%}
+
+{%- if type == 'submit' -%}
+  <button
+    type="submit"
+    class="{{ btn_class }}"
+    {% if disabled %}
+      disabled
+    {% endif %}
+  >
+    {{ label }}
+  </button>
+{%- elsif url != blank -%}
+  <a href="{{ url }}" class="{{ btn_class }}">{{ label }}</a>
+{%- else -%}
+  <span class="{{ btn_class }}">{{ label }}</span>
+{%- endif -%}

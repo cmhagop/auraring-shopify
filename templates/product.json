@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "tab-desc": { "type": "collapsible", "settings": { "heading": "Description", "content": "<p>Detailed product information.</p>" } },
+        "tab-specs": { "type": "collapsible", "settings": { "heading": "Specifications", "content": "<p>Materials, dimensions, and technical specifications.</p>" } },
+        "tab-ship": { "type": "collapsible", "settings": { "heading": "Shipping & Returns", "content": "<p>Free worldwide shipping. 30-day hassle-free returns.</p>" } }
+      },
+      "block_order": ["tab-desc", "tab-specs", "tab-ship"]
+    }
+  },
+  "order": ["main-product"]
+}

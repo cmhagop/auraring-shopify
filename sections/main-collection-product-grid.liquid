@@ -1,0 +1,74 @@
+<section class="collection-page section-spacing" data-section-id="{{ section.id }}">
+  <div class="page-width">
+    <div class="collection-page__header reveal">
+      <h1>{{ collection.title }}</h1>
+      {%- if collection.description != blank -%}
+        <p style="margin-top:12px;margin-inline:auto;text-align:center">{{ collection.description }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if collection.products.size > 0 -%}
+      <div class="collection-page__grid reveal-children">
+        {%- paginate collection.products by section.settings.products_per_page -%}
+          {%- for product in collection.products -%}
+            <a href="{{ product.url }}" class="product-card">
+              <div class="product-card__image">
+                {%- if product.featured_image -%}
+                  <img
+                    src="{{ product.featured_image | image_url: width: 600 }}"
+                    alt="{{ product.featured_image.alt | escape }}"
+                    width="600"
+                    height="600"
+                    loading="lazy"
+                  >
+                {%- else -%}
+                  {{ 'product-1' | placeholder_svg_tag: 'product-card__placeholder' }}
+                {%- endif -%}
+              </div>
+              <div class="product-card__info">
+                <h3 class="product-card__title">{{ product.title }}</h3>
+                <div class="product-card__price">
+                  {%- if product.compare_at_price > product.price -%}
+                    <s>{{ product.compare_at_price | money }}</s>
+                  {%- endif -%}
+                  {{ product.price | money }}
+                </div>
+              </div>
+            </a>
+          {%- endfor -%}
+
+          {%- if paginate.pages > 1 -%}
+            <div style="grid-column:1/-1;text-align:center;margin-top:40px">
+              {{ paginate | default_pagination }}
+            </div>
+          {%- endif -%}
+        {%- endpaginate -%}
+      </div>
+    {%- else -%}
+      <div class="cart-page__empty">
+        <p>No products found in this collection.</p>
+        {%- render 'button', label: 'Continue Shopping', url: '/', style: 'secondary' -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection Product Grid",
+  "tag": "section",
+  "class": "collection-page-section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "label": "Products per page",
+      "min": 4,
+      "max": 24,
+      "step": 4,
+      "default": 12
+    }
+  ],
+  "presets": [{ "name": "Collection Product Grid" }]
+}
+{% endschema %}

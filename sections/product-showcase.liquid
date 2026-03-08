@@ -1,0 +1,131 @@
+<section class="section-spacing" id="showcase" data-section-id="{{ section.id }}">
+  <div class="page-width">
+    <div class="showcase__header reveal">
+      {%- if section.settings.badge_text != blank -%}
+        <div style="margin-bottom:16px">
+          <span class="badge">{{ section.settings.badge_text }}</span>
+        </div>
+      {%- endif -%}
+      <h2>{{ section.settings.heading }}</h2>
+      {%- if section.settings.subheading != blank -%}
+        <p style="margin-top:16px;margin-inline:auto">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="showcase__grid reveal-children">
+      {%- if section.settings.collection != blank -%}
+        {%- for product in collections[section.settings.collection].products
+          limit: section.settings.products_to_show
+        -%}
+          <a href="{{ product.url }}" class="product-card">
+            <div class="product-card__image">
+              {%- if product.featured_image -%}
+                <img
+                  src="{{ product.featured_image | image_url: width: 600 }}"
+                  alt="{{ product.featured_image.alt | escape }}"
+                  width="600"
+                  height="600"
+                  loading="lazy"
+                >
+              {%- else -%}
+                {{ 'product-1' | placeholder_svg_tag: 'product-card__placeholder' }}
+              {%- endif -%}
+            </div>
+            <div class="product-card__info">
+              <h3 class="product-card__title">{{ product.title }}</h3>
+              <div class="product-card__price">
+                {%- if product.compare_at_price > product.price -%}
+                  <s>{{ product.compare_at_price | money }}</s>
+                {%- endif -%}
+                {{ product.price | money }}
+              </div>
+            </div>
+          </a>
+        {%- endfor -%}
+      {%- else -%}
+        {%- for block in section.blocks -%}
+          <div class="product-card" {{ block.shopify_attributes }}>
+            <div class="product-card__image">
+              {%- if block.settings.image -%}
+                <img
+                  src="{{ block.settings.image | image_url: width: 600 }}"
+                  alt="{{ block.settings.title | escape }}"
+                  width="600"
+                  height="600"
+                  loading="lazy"
+                >
+              {%- else -%}
+                <img src="{{ 'hero-ring.png' | asset_url }}" alt="{{ block.settings.title | escape }}" loading="lazy">
+              {%- endif -%}
+            </div>
+            <div class="product-card__info">
+              <h3 class="product-card__title">{{ block.settings.title }}</h3>
+              <div class="product-card__price">{{ block.settings.price }}</div>
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.button_text != blank -%}
+      <div class="showcase__cta reveal">
+        {%- render 'button',
+          label: section.settings.button_text,
+          url: section.settings.button_link,
+          style: 'secondary'
+        -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Showcase",
+  "tag": "section",
+  "class": "showcase-section",
+  "settings": [
+    { "type": "text", "id": "badge_text", "label": "Badge text", "default": "The Collection" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Meet AURARING" },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Premium wearable technology, refined to its purest form."
+    },
+    { "type": "collection", "id": "collection", "label": "Collection" },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "Products to show",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 3
+    },
+    { "type": "text", "id": "button_text", "label": "Button text", "default": "View All Products" },
+    { "type": "url", "id": "button_link", "label": "Button link", "default": "/collections/all" }
+  ],
+  "blocks": [
+    {
+      "type": "product_placeholder",
+      "name": "Product placeholder",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "title", "label": "Title", "default": "AURARING" },
+        { "type": "text", "id": "price", "label": "Price", "default": "$299.00" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Showcase",
+      "blocks": [
+        { "type": "product_placeholder", "settings": { "title": "AURARING — Stealth Black", "price": "$299.00" } },
+        { "type": "product_placeholder", "settings": { "title": "AURARING — Titanium Silver", "price": "$349.00" } },
+        { "type": "product_placeholder", "settings": { "title": "AURARING — Graphite Pro", "price": "$349.00" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

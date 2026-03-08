@@ -1,0 +1,22 @@
+{
+  "type": "header",
+  "name": "Header Group",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "settings": {}
+    },
+    "header": {
+      "type": "header",
+      "settings": {},
+      "blocks": {
+        "nav-shop": { "type": "nav_link", "settings": { "label": "Shop", "link": "/collections/all" } },
+        "nav-tech": { "type": "nav_link", "settings": { "label": "Technology", "link": "/#technology" } },
+        "nav-science": { "type": "nav_link", "settings": { "label": "Science", "link": "/#metrics" } },
+        "nav-faq": { "type": "nav_link", "settings": { "label": "FAQ", "link": "/#faq" } }
+      },
+      "block_order": ["nav-shop", "nav-tech", "nav-science", "nav-faq"]
+    }
+  },
+  "order": ["announcement-bar", "header"]
+}

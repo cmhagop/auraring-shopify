@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      {{ page_title }}
+      {% unless page_title contains shop.name %} — {{ shop.name }}{% endunless %}
+    </title>
+    {%- if page_description -%}
+      <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
+
+    {{ content_for_header }}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    >
+
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
+
+    <style>
+      :root {
+        --color-bg: {{ settings.color_bg | default: '#0a0a0a' }};
+        --color-bg-card: {{ settings.color_bg_card | default: '#111111' }};
+        --color-bg-elevated: {{ settings.color_bg_elevated | default: '#1a1a1a' }};
+        --color-text: {{ settings.color_text | default: '#f0f0f0' }};
+        --color-text-muted: {{ settings.color_text_muted | default: '#808088' }};
+        --color-accent: {{ settings.color_accent | default: '#b8b8c0' }};
+        --color-border: {{ settings.color_border | default: '#1e1e22' }};
+        --font-heading: 'Outfit', sans-serif;
+        --font-body: 'Inter', sans-serif;
+        --page-width: {{ settings.page_width | default: 1200 }}px;
+        --section-spacing: {{ settings.section_spacing | default: 100 }}px;
+      }
+    </style>
+
+    {%- if settings.favicon -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32 }}">
+    {%- endif -%}
+  </head>
+
+  <body class="auraring-theme">
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
+
+    {% sections 'header-group' %}
+
+    <main id="main-content">
+      {{ content_for_layout }}
+    </main>
+
+    {% sections 'footer-group' %}
+
+    <script src="{{ 'theme.js' | asset_url }}" defer></script>
+  </body>
+</html>

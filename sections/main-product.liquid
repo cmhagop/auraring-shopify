@@ -1,0 +1,153 @@
+<section class="product-page section-spacing" data-section-id="{{ section.id }}">
+  <div class="page-width">
+    <div class="product-page__inner">
+      {%- comment -%} Gallery {%- endcomment -%}
+      <div class="product-page__gallery">
+        <div class="product-page__gallery-main">
+          {%- if product.featured_image -%}
+            <img
+              src="{{ product.featured_image | image_url: width: 900 }}"
+              alt="{{ product.featured_image.alt | escape }}"
+              width="900"
+              id="ProductMainImage"
+            >
+          {%- else -%}
+            {{ 'product-1' | placeholder_svg_tag }}
+          {%- endif -%}
+        </div>
+        {%- if product.images.size > 1 -%}
+          <div class="product-page__gallery-thumbs">
+            {%- for image in product.images -%}
+              <div class="product-page__gallery-thumb{% if forloop.first %} is-active{% endif %}">
+                <img
+                  src="{{ image | image_url: width: 200 }}"
+                  alt="{{ image.alt | escape }}"
+                  width="200"
+                  loading="lazy"
+                >
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} Product Info {%- endcomment -%}
+      <div class="product-page__info">
+        {%- if product.vendor -%}
+          <div class="product-page__vendor">{{ product.vendor }}</div>
+        {%- endif -%}
+
+        <h1 class="product-page__title">{{ product.title }}</h1>
+
+        <div class="product-page__price">
+          <span>{{ product.selected_or_first_available_variant.price | money }}</span>
+          {%- if product.selected_or_first_available_variant.compare_at_price
+              > product.selected_or_first_available_variant.price
+          -%}
+            <span class="product-page__price-compare">
+              {{ product.selected_or_first_available_variant.compare_at_price | money }}
+            </span>
+          {%- endif -%}
+        </div>
+
+        {%- if product.description != blank -%}
+          <div class="product-page__description">{{ product.description }}</div>
+        {%- endif -%}
+
+        {%- comment -%} Variants {%- endcomment -%}
+        {%- unless product.has_only_default_variant -%}
+          {%- for option in product.options_with_values -%}
+            <div class="product-page__variants">
+              <div class="product-page__variant-label">{{ option.name }}</div>
+              <div class="product-page__variant-options">
+                {%- for value in option.values -%}
+                  <button
+                    class="product-page__variant-btn{% if option.selected_value == value %} is-active{% endif %}"
+                    data-option-name="{{ option.name }}"
+                    data-option-value="{{ value }}"
+                  >
+                    {{ value }}
+                  </button>
+                {%- endfor -%}
+              </div>
+            </div>
+          {%- endfor -%}
+        {%- endunless -%}
+
+        {%- comment -%} Add to Cart {%- endcomment -%}
+        <form method="post" action="/cart/add" accept-charset="UTF-8" enctype="multipart/form-data">
+          <input type="hidden" name="form_type" value="product">
+          <input type="hidden" name="utf8" value="✓">
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+          {%-
+            render 'button',
+            label: 'Add to Cart',
+            style: 'accent',
+            size: 'lg',
+            full: true,
+            type: 'submit',
+            disabled: product.selected_or_first_available_variant.available == false
+          -%}
+        </form>
+
+        <hr class="glow-divider" style="margin-block:36px">
+
+        {%- comment -%} Collapsible tabs {%- endcomment -%}
+        {%- for block in section.blocks -%}
+          <div class="faq-item" {{ block.shopify_attributes }}>
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span>{{ block.settings.heading }}</span>
+              <span class="faq-item__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-item__content">
+              <div class="faq-item__answer">{{ block.settings.content }}</div>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Page",
+  "tag": "section",
+  "class": "product-page-section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "collapsible",
+      "name": "Collapsible tab",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Details" },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>Add details about your product here.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Page",
+      "blocks": [
+        {
+          "type": "collapsible",
+          "settings": { "heading": "Description", "content": "<p>Detailed product information.</p>" }
+        },
+        {
+          "type": "collapsible",
+          "settings": { "heading": "Specifications", "content": "<p>Materials, dimensions, and technical details.</p>" }
+        },
+        {
+          "type": "collapsible",
+          "settings": { "heading": "Shipping & Returns", "content": "<p>Free shipping worldwide. 30-day returns.</p>" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,16 @@
+{
+  "current": "Default",
+  "presets": {
+    "Default": {
+      "color_background": "#0a0a0a",
+      "color_background_card": "#111111",
+      "color_background_elevated": "#1a1a1a",
+      "color_text": "#f0f0f0",
+      "color_text_muted": "#808088",
+      "color_accent": "#b8b8c0",
+      "color_border": "#1e1e22",
+      "page_width": 1200,
+      "section_spacing": 100
+    }
+  }
+}

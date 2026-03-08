@@ -1,0 +1,95 @@
+<section class="section-spacing" id="faq" data-section-id="{{ section.id }}">
+  <div class="page-width">
+    <div class="faq-section__header reveal">
+      {%- if section.settings.badge_text != blank -%}
+        <div style="margin-bottom:16px">
+          <span class="badge">{{ section.settings.badge_text }}</span>
+        </div>
+      {%- endif -%}
+      <h2>{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="faq-section__list reveal">
+      {%- for block in section.blocks -%}
+        <div class="faq-item" {{ block.shopify_attributes }}>
+          <button class="faq-item__trigger" aria-expanded="false">
+            <span>{{ block.settings.question }}</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__content">
+            <div class="faq-item__answer">{{ block.settings.answer }}</div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "tag": "section",
+  "class": "faq-section-wrap",
+  "settings": [
+    { "type": "text", "id": "badge_text", "label": "Badge text", "default": "FAQ" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Frequently asked questions" }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "What does AURARING track?" },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>AURARING tracks heart rate, HRV, blood oxygen, skin temperature, sleep stages, activity, and readiness.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ",
+      "blocks": [
+        {
+          "type": "question",
+          "settings": {
+            "question": "What does AURARING track?",
+            "answer": "<p>AURARING tracks heart rate, heart rate variability (HRV), blood oxygen saturation (SpO₂), skin temperature, sleep stages, daily activity, and a composite Readiness Score — all from a lightweight titanium ring.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "How long does the battery last?",
+            "answer": "<p>Up to 7 days on a single charge, depending on usage patterns. It fully recharges in approximately 80 minutes on the included wireless charging dock.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Is it waterproof?",
+            "answer": "<p>Yes. AURARING is water-resistant up to 100 meters (10 ATM). You can shower, swim, and train without ever removing it.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "How do I find my ring size?",
+            "answer": "<p>We ship a complimentary sizing kit within 24 hours of your request. We recommend wearing the sizing ring for at least a full day — including overnight — before placing your order.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Does it work with Apple Health and Google Fit?",
+            "answer": "<p>Absolutely. AURARING syncs natively with Apple Health, Google Fit, and our standalone companion app — available on both iOS and Android.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

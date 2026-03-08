@@ -1,0 +1,154 @@
+<section class="section-spacing" id="metrics" data-section-id="{{ section.id }}">
+  <div class="page-width">
+    <div class="metrics__header reveal">
+      {%- if section.settings.badge_text != blank -%}
+        <div style="margin-bottom:16px">
+          <span class="badge">{{ section.settings.badge_text }}</span>
+        </div>
+      {%- endif -%}
+      <h2>{{ section.settings.heading }}</h2>
+      {%- if section.settings.subheading != blank -%}
+        <p style="margin-top:16px;margin-inline:auto">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="metrics__grid reveal-children">
+      {%- for block in section.blocks -%}
+        <div class="metric-card" {{ block.shopify_attributes }}>
+          <div class="metric-card__icon">
+            {%- case block.settings.icon -%}
+              {%- when 'heart' -%}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+              {%- when 'moon' -%}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+              {%- when 'brain' -%}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 2a5 5 0 0 0-4.56 2.94A4 4 0 0 0 5 12a4 4 0 0 0 1.44 3.06A5 5 0 0 0 12 22a5 5 0 0 0 5.56-6.94A4 4 0 0 0 19 12a4 4 0 0 0-1.44-3.06A5 5 0 0 0 12 2z"/><path d="M12 2v20"/>
+                </svg>
+              {%- when 'droplet' -%}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                </svg>
+              {%- else -%}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10"/>
+                </svg>
+            {%- endcase -%}
+          </div>
+          <div class="metric-card__value">{{ block.settings.value }}</div>
+          <div class="metric-card__label">{{ block.settings.label }}</div>
+          {%- if block.settings.progress > 0 -%}
+            <div class="metric-card__bar">
+              <div class="metric-card__bar-fill" style="width:{{ block.settings.progress }}%"></div>
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Metrics Dashboard",
+  "tag": "section",
+  "class": "metrics-section",
+  "settings": [
+    { "type": "text", "id": "badge_text", "label": "Badge text", "default": "Biometrics" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Your body, quantified" },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Real-time biometric insights delivered to your fingertip."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "metric",
+      "name": "Metric card",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "heart",
+          "options": [
+            { "value": "heart", "label": "Heart" },
+            { "value": "moon", "label": "Moon / Sleep" },
+            { "value": "brain", "label": "Brain / HRV" },
+            { "value": "droplet", "label": "Droplet / SpO2" }
+          ]
+        },
+        { "type": "text", "id": "value", "label": "Metric value", "default": "72 bpm" },
+        { "type": "text", "id": "label", "label": "Metric label", "default": "Resting Heart Rate" },
+        { "type": "range", "id": "progress", "label": "Progress bar %", "min": 0, "max": 100, "step": 5, "default": 85 }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Metrics Dashboard",
+      "blocks": [
+        {
+          "type": "metric",
+          "settings": { "icon": "heart", "value": "72 bpm", "label": "Resting Heart Rate", "progress": 85 }
+        },
+        {
+          "type": "metric",
+          "settings": { "icon": "moon", "value": "8h 12m", "label": "Sleep Duration", "progress": 90 }
+        },
+        { "type": "metric", "settings": { "icon": "brain", "value": "48 ms", "label": "HRV Score", "progress": 70 } },
+        {
+          "type": "metric",
+          "settings": { "icon": "droplet", "value": "98%", "label": "Blood Oxygen (SpO₂)", "progress": 98 }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
