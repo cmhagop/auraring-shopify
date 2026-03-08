@@ -13,69 +13,38 @@
     </div>
 
     <div class="showcase__grid reveal-children">
-      {%- if section.settings.collection != blank -%}
-        {%- for product in collections[section.settings.collection].products
-          limit: section.settings.products_to_show
-        -%}
-          <a href="{{ product.url }}" class="product-card">
-            <div class="product-card__image">
-              {%- if product.featured_image -%}
-                <img
-                  src="{{ product.featured_image | image_url: width: 600 }}"
-                  alt="{{ product.featured_image.alt | escape }}"
-                  width="600"
-                  height="600"
-                  loading="lazy"
-                >
-              {%- else -%}
-                {{ 'product-1' | placeholder_svg_tag: 'product-card__placeholder' }}
-              {%- endif -%}
-            </div>
-            <div class="product-card__info">
-              <h3 class="product-card__title">{{ product.title }}</h3>
-              <div class="product-card__price">
-                {%- if product.compare_at_price > product.price -%}
-                  <s>{{ product.compare_at_price | money }}</s>
-                {%- endif -%}
-                {{ product.price | money }}
-              </div>
-            </div>
-          </a>
-        {%- endfor -%}
-      {%- else -%}
-        {%- for block in section.blocks -%}
-          {%- assign p = block.settings.product -%}
-          {%- assign card_url = p.url -%}
-          {%- assign card_title = block.settings.title -%}
-          {%- assign card_price = block.settings.price -%}
-          
-          {%- if p != blank -%}
-            {%- assign card_title = p.title -%}
-            {%- assign card_price = p.price | money -%}
-          {%- endif -%}
+      {%- for block in section.blocks -%}
+        {%- assign p = block.settings.product -%}
+        {%- assign card_url = p.url -%}
+        {%- assign card_title = block.settings.title -%}
+        {%- assign card_price = block.settings.price -%}
+        
+        {%- if p != blank -%}
+          {%- assign card_title = p.title -%}
+          {%- assign card_price = p.price | money -%}
+        {%- endif -%}
 
-          <{% if card_url != blank %}a href="{{ card_url }}"{% else %}div{% endif %} class="product-card" {{ block.shopify_attributes }}>
-            <div class="product-card__image">
-              {%- if p != blank and p.featured_image != blank -%}
-                <img src="{{ p.featured_image | image_url: width: 600 }}" alt="{{ card_title | escape }}" width="600" height="600" loading="lazy">
-              {%- elsif block.settings.image -%}
-                <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ card_title | escape }}" width="600" height="600" loading="lazy">
-              {%- else -%}
-                <img src="{{ 'hero-ring.png' | asset_url }}" alt="{{ card_title | escape }}" loading="lazy">
+        <{% if card_url != blank %}a href="{{ card_url }}"{% else %}div{% endif %} class="product-card" {{ block.shopify_attributes }}>
+          <div class="product-card__image">
+            {%- if p != blank and p.featured_image != blank -%}
+              <img src="{{ p.featured_image | image_url: width: 600 }}" alt="{{ card_title | escape }}" width="600" height="600" loading="lazy">
+            {%- elsif block.settings.image -%}
+              <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ card_title | escape }}" width="600" height="600" loading="lazy">
+            {%- else -%}
+              <img src="{{ 'hero-ring.png' | asset_url }}" alt="{{ card_title | escape }}" loading="lazy">
+            {%- endif -%}
+          </div>
+          <div class="product-card__info">
+            <h3 class="product-card__title">{{ card_title }}</h3>
+            <div class="product-card__price">
+              {%- if p != blank and p.compare_at_price > p.price -%}
+                <s>{{ p.compare_at_price | money }}</s>
               {%- endif -%}
+              {{ card_price }}
             </div>
-            <div class="product-card__info">
-              <h3 class="product-card__title">{{ card_title }}</h3>
-              <div class="product-card__price">
-                {%- if p != blank and p.compare_at_price > p.price -%}
-                  <s>{{ p.compare_at_price | money }}</s>
-                {%- endif -%}
-                {{ card_price }}
-              </div>
-            </div>
-          </{% if card_url != blank %}a{% else %}div{% endif %}>
-        {%- endfor -%}
-      {%- endif -%}
+          </div>
+        </{% if card_url != blank %}a{% else %}div{% endif %}>
+      {%- endfor -%}
     </div>
 
     {%- if section.settings.button_text != blank -%}
@@ -100,16 +69,6 @@
       "id": "subheading",
       "label": "Subheading",
       "default": "Premium wearable technology, refined to its purest form."
-    },
-    { "type": "collection", "id": "collection", "label": "Collection" },
-    {
-      "type": "range",
-      "id": "products_to_show",
-      "label": "Products to show",
-      "min": 2,
-      "max": 12,
-      "step": 1,
-      "default": 3
     },
     { "type": "text", "id": "button_text", "label": "Button text", "default": "View All Products" },
     { "type": "product", "id": "button_product", "label": "Button product" },
