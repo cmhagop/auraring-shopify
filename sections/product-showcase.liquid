@@ -69,11 +69,8 @@
 
     {%- if section.settings.button_text != blank -%}
       <div class="showcase__cta reveal">
-        {%- render 'button',
-          label: section.settings.button_text,
-          url: section.settings.button_link,
-          style: 'secondary'
-        -%}
+        {%- assign btn_url = section.settings.button_product.url | default: section.settings.button_link -%}
+        {%- render 'button', label: section.settings.button_text, url: btn_url, style: 'secondary' -%}
       </div>
     {%- endif -%}
   </div>
@@ -104,7 +101,8 @@
       "default": 3
     },
     { "type": "text", "id": "button_text", "label": "Button text", "default": "View All Products" },
-    { "type": "url", "id": "button_link", "label": "Button link", "default": "" }
+    { "type": "product", "id": "button_product", "label": "Button product" },
+    { "type": "url", "id": "button_link", "label": "Button link (fallback)", "default": "" }
   ],
   "blocks": [
     {

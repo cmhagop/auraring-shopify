@@ -8,12 +8,8 @@
           <p class="cta-banner__subheading">{{ section.settings.subheading }}</p>
         {%- endif -%}
         {%- if section.settings.button_text != blank -%}
-          {%- render 'button',
-            label: section.settings.button_text,
-            url: section.settings.button_link,
-            style: 'accent',
-            size: 'lg'
-          -%}
+          {%- assign btn_url = section.settings.button_product.url | default: section.settings.button_link -%}
+          {%- render 'button', label: section.settings.button_text, url: btn_url, style: 'accent', size: 'lg' -%}
         {%- endif -%}
       </div>
     </div>
@@ -34,7 +30,8 @@
       "default": "Join thousands who have made AURARING part of their daily ritual."
     },
     { "type": "text", "id": "button_text", "label": "Button text", "default": "Shop AURARING" },
-    { "type": "url", "id": "button_link", "label": "Button link", "default": "" }
+    { "type": "product", "id": "button_product", "label": "Button product" },
+    { "type": "url", "id": "button_link", "label": "Button link (fallback)", "default": "" }
   ],
   "presets": [{ "name": "Final CTA" }]
 }

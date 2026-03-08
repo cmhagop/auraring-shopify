@@ -19,12 +19,8 @@
         <p class="lifestyle__subheading">{{ section.settings.subheading }}</p>
       {%- endif -%}
       {%- if section.settings.button_text != blank -%}
-        {%- render 'button',
-          label: section.settings.button_text,
-          url: section.settings.button_link,
-          style: 'primary',
-          size: 'lg'
-        -%}
+        {%- assign btn_url = section.settings.button_product.url | default: section.settings.button_link -%}
+        {%- render 'button', label: section.settings.button_text, url: btn_url, style: 'primary', size: 'lg' -%}
       {%- endif -%}
     </div>
   </div>
@@ -46,7 +42,8 @@
       "default": "From the boardroom to the gym. From sunrise to deep sleep. AURARING stays with you through every moment that matters."
     },
     { "type": "text", "id": "button_text", "label": "Button text", "default": "Explore AURARING" },
-    { "type": "url", "id": "button_link", "label": "Button link", "default": "" }
+    { "type": "product", "id": "button_product", "label": "Button product" },
+    { "type": "url", "id": "button_link", "label": "Button link (fallback)", "default": "" }
   ],
   "presets": [{ "name": "Lifestyle" }]
 }

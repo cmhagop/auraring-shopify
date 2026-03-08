@@ -39,9 +39,12 @@
       {%- endif -%}
       <div class="hero__buttons">
         {%- if section.settings.button_primary_text != blank -%}
+          {%- assign primary_url = section.settings.button_primary_product.url
+            | default: section.settings.button_primary_link
+          -%}
           {%- render 'button',
             label: section.settings.button_primary_text,
-            url: section.settings.button_primary_link,
+            url: primary_url,
             style: 'primary',
             size: 'lg'
           -%}
@@ -75,7 +78,8 @@
       "default": "Track sleep, heart rate, HRV, and blood oxygen with clinical-grade accuracy — all from a ring you never need to take off."
     },
     { "type": "text", "id": "button_primary_text", "label": "Primary button text", "default": "Shop Now" },
-    { "type": "url", "id": "button_primary_link", "label": "Primary button link", "default": "" },
+    { "type": "product", "id": "button_primary_product", "label": "Primary button product" },
+    { "type": "url", "id": "button_primary_link", "label": "Primary button link (fallback)", "default": "" },
     { "type": "text", "id": "button_secondary_text", "label": "Secondary button text", "default": "Learn More" },
     { "type": "url", "id": "button_secondary_link", "label": "Secondary button link" }
   ],
