@@ -13,19 +13,57 @@
   "sections": {
     "announcement-bar": {
       "type": "announcement-bar",
-      "settings": {}
+      "settings": {
+        "show_bar": true,
+        "text": "Free worldwide shipping · 30-day risk-free trial",
+        "show_close": true
+      }
     },
     "header": {
       "type": "header",
-      "settings": {},
       "blocks": {
-        "nav-shop": { "type": "nav_link", "settings": { "label": "Shop", "link": "" } },
-        "nav-tech": { "type": "nav_link", "settings": { "label": "Technology", "link": "" } },
-        "nav-science": { "type": "nav_link", "settings": { "label": "Science", "link": "" } },
-        "nav-faq": { "type": "nav_link", "settings": { "label": "FAQ", "link": "" } }
+        "nav-shop": {
+          "type": "nav_link",
+          "settings": {
+            "label": "Shop",
+            "link": "shopify://collections/frontpage"
+          }
+        },
+        "nav-tech": {
+          "type": "nav_link",
+          "settings": {
+            "label": "Technology",
+            "link": ""
+          }
+        },
+        "nav-science": {
+          "type": "nav_link",
+          "settings": {
+            "label": "Science",
+            "link": ""
+          }
+        },
+        "nav-faq": {
+          "type": "nav_link",
+          "settings": {
+            "label": "FAQ",
+            "link": ""
+          }
+        }
       },
-      "block_order": ["nav-shop", "nav-tech", "nav-science", "nav-faq"]
+      "block_order": [
+        "nav-shop",
+        "nav-tech",
+        "nav-science",
+        "nav-faq"
+      ],
+      "settings": {
+        "logo_text": "AURARING"
+      }
     }
   },
-  "order": ["announcement-bar", "header"]
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
 }
