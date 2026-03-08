@@ -44,25 +44,36 @@
         {%- endfor -%}
       {%- else -%}
         {%- for block in section.blocks -%}
-          <div class="product-card" {{ block.shopify_attributes }}>
+          {%- assign p = block.settings.product -%}
+          {%- assign card_url = p.url -%}
+          {%- assign card_title = block.settings.title -%}
+          {%- assign card_price = block.settings.price -%}
+          
+          {%- if p != blank -%}
+            {%- assign card_title = p.title -%}
+            {%- assign card_price = p.price | money -%}
+          {%- endif -%}
+
+          <{% if card_url != blank %}a href="{{ card_url }}"{% else %}div{% endif %} class="product-card" {{ block.shopify_attributes }}>
             <div class="product-card__image">
-              {%- if block.settings.image -%}
-                <img
-                  src="{{ block.settings.image | image_url: width: 600 }}"
-                  alt="{{ block.settings.title | escape }}"
-                  width="600"
-                  height="600"
-                  loading="lazy"
-                >
+              {%- if p != blank and p.featured_image != blank -%}
+                <img src="{{ p.featured_image | image_url: width: 600 }}" alt="{{ card_title | escape }}" width="600" height="600" loading="lazy">
+              {%- elsif block.settings.image -%}
+                <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ card_title | escape }}" width="600" height="600" loading="lazy">
               {%- else -%}
-                <img src="{{ 'hero-ring.png' | asset_url }}" alt="{{ block.settings.title | escape }}" loading="lazy">
+                <img src="{{ 'hero-ring.png' | asset_url }}" alt="{{ card_title | escape }}" loading="lazy">
               {%- endif -%}
             </div>
             <div class="product-card__info">
-              <h3 class="product-card__title">{{ block.settings.title }}</h3>
-              <div class="product-card__price">{{ block.settings.price }}</div>
+              <h3 class="product-card__title">{{ card_title }}</h3>
+              <div class="product-card__price">
+                {%- if p != blank and p.compare_at_price > p.price -%}
+                  <s>{{ p.compare_at_price | money }}</s>
+                {%- endif -%}
+                {{ card_price }}
+              </div>
             </div>
-          </div>
+          </{% if card_url != blank %}a{% else %}div{% endif %}>
         {%- endfor -%}
       {%- endif -%}
     </div>
@@ -107,8 +118,10 @@
   "blocks": [
     {
       "type": "product_placeholder",
-      "name": "Product placeholder",
+      "name": "Product card",
       "settings": [
+        { "type": "product", "id": "product", "label": "Select product" },
+        { "type": "header", "content": "Fallback content", "info": "Used if no product is selected" },
         { "type": "image_picker", "id": "image", "label": "Image" },
         { "type": "text", "id": "title", "label": "Title", "default": "AURARING" },
         { "type": "text", "id": "price", "label": "Price", "default": "$299.00" }
