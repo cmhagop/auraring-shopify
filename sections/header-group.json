@@ -10,10 +10,10 @@
       "type": "header",
       "settings": {},
       "blocks": {
-        "nav-shop": { "type": "nav_link", "settings": { "label": "Shop", "link": "/collections/all" } },
-        "nav-tech": { "type": "nav_link", "settings": { "label": "Technology", "link": "/#technology" } },
-        "nav-science": { "type": "nav_link", "settings": { "label": "Science", "link": "/#metrics" } },
-        "nav-faq": { "type": "nav_link", "settings": { "label": "FAQ", "link": "/#faq" } }
+        "nav-shop": { "type": "nav_link", "settings": { "label": "Shop", "link": "" } },
+        "nav-tech": { "type": "nav_link", "settings": { "label": "Technology", "link": "" } },
+        "nav-science": { "type": "nav_link", "settings": { "label": "Science", "link": "" } },
+        "nav-faq": { "type": "nav_link", "settings": { "label": "FAQ", "link": "" } }
       },
       "block_order": ["nav-shop", "nav-tech", "nav-science", "nav-faq"]
     }

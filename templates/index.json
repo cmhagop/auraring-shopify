@@ -7,7 +7,7 @@
         "heading": "Precision health.<br>On your finger.",
         "subheading": "Track sleep, heart rate, HRV, and blood oxygen with clinical-grade accuracy — all from a ring you never need to take off.",
         "button_primary_text": "Shop Now",
-        "button_primary_link": "/collections/all",
+        "button_primary_link": "",
         "button_secondary_text": "Learn More",
         "button_secondary_link": ""
       }
@@ -35,7 +35,7 @@
         "subheading": "Premium wearable technology, refined to its purest form.",
         "products_to_show": 3,
         "button_text": "View All Products",
-        "button_link": "/collections/all"
+        "button_link": ""
       },
       "blocks": {
         "p1": { "type": "product_placeholder", "settings": { "title": "AURARING — Stealth Black", "price": "$299.00" } },
@@ -93,7 +93,7 @@
         "heading": "Wear it everywhere",
         "subheading": "From the boardroom to the gym. From sunrise to deep sleep. AURARING stays with you through every moment that matters.",
         "button_text": "Explore AURARING",
-        "button_link": "/collections/all"
+        "button_link": ""
       }
     },
     "faq": {
@@ -117,7 +117,7 @@
         "heading": "Ready to know yourself better?",
         "subheading": "Join thousands who have made AURARING part of their daily ritual.",
         "button_text": "Shop AURARING",
-        "button_link": "/collections/all"
+        "button_link": ""
       }
     }
   },
