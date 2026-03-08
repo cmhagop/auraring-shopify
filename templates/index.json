@@ -18,7 +18,7 @@
         "button_primary_text": "Shop Now",
         "button_primary_link": "shopify://collections/all",
         "button_secondary_text": "Learn More",
-        "button_secondary_link": "shopify://collections/frontpage"
+        "button_secondary_link": "shopify://policies/privacy-policy"
       }
     },
     "value-proposition": {
