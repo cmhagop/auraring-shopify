@@ -26,7 +26,7 @@
           "type": "nav_link",
           "settings": {
             "label": "Shop",
-            "link": "https://keqhpm-wd.myshopify.com/"
+            "link": "shopify://collections/all"
           }
         },
         "nav-tech": {
