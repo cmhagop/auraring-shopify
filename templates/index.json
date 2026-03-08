@@ -72,27 +72,9 @@
     "product-showcase": {
       "type": "product-showcase",
       "blocks": {
-        "p1": {
-          "type": "product_placeholder",
-          "settings": {
-            "title": "AURARING — Stealth Black",
-            "price": "$299.00"
-          }
-        },
-        "p2": {
-          "type": "product_placeholder",
-          "settings": {
-            "title": "AURARING — Titanium Silver",
-            "price": "$349.00"
-          }
-        },
-        "p3": {
-          "type": "product_placeholder",
-          "settings": {
-            "title": "AURARING — Graphite Pro",
-            "price": "$349.00"
-          }
-        }
+        "p1": { "type": "product_placeholder", "settings": { "title": "Auraring Stealth Black — Deep Black", "price": "$299.00" } },
+        "p2": { "type": "product_placeholder", "settings": { "title": "Auraring Stealth Black — Military Green", "price": "$349.00" } },
+        "p3": { "type": "product_placeholder", "settings": { "title": "Auraring Stealth Black — Military Gray", "price": "$349.00" } }
       },
       "block_order": [
         "p1",
