@@ -75,6 +75,7 @@
         "p1": {
           "type": "product_placeholder",
           "settings": {
+            "image": "shopify://shop_images/aura-ring-silver.png",
             "title": "Auraring Stealth",
             "price": "$299.00"
           }
