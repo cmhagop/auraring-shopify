@@ -12,7 +12,6 @@
     "hero": {
       "type": "hero",
       "settings": {
-        "banner_image": "shopify://shop_images/aura-hero-lifestyle.png",
         "badge_text": "Next-Gen Wearable",
         "heading": "Precision health.<br>On your finger.",
         "subheading": "Track sleep, heart rate, HRV, and blood oxygen with clinical-grade accuracy — all from a ring you never need to take off.",
