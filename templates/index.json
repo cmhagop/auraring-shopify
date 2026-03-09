@@ -12,6 +12,7 @@
     "hero": {
       "type": "hero",
       "settings": {
+        "banner_image": "shopify://shop_images/aura-hero-lifestyle.png",
         "badge_text": "Next-Gen Wearable",
         "heading": "Precision health.<br>On your finger.",
         "subheading": "Track sleep, heart rate, HRV, and blood oxygen with clinical-grade accuracy — all from a ring you never need to take off.",
@@ -103,6 +104,8 @@
         "badge_text": "The Collection",
         "heading": "Meet AURARING",
         "subheading": "Premium wearable technology, refined to its purest form.",
+        "collection": "",
+        "products_to_show": 3,
         "button_text": "View All Products",
         "button_link": "shopify://collections/all"
       }
