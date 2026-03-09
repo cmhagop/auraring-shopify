@@ -83,6 +83,7 @@
         "p2": {
           "type": "product_placeholder",
           "settings": {
+            "image": "shopify://shop_images/aura-ring-black.png",
             "title": "Auraring Onyx",
             "price": "$349.00"
           }
