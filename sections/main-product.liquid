@@ -1,9 +1,11 @@
 <section class="product-page section-spacing" data-section-id="{{ section.id }}">
-  <div
-    class="product-page__ambient-layer"
-    aria-hidden="true"
-    style="{% if section.settings.ambient_bg %}background-image: url('{{ section.settings.ambient_bg | image_url: width: 1500 }}');{% else %}background-image: url('{{ 'product-ambient-bg.png' | asset_url }}');{% endif %}"
-  ></div>
+  <div class="product-page__ambient-wrapper">
+    <div
+      class="product-page__ambient-layer"
+      aria-hidden="true"
+      style="{% if section.settings.ambient_bg %}background-image: url('{{ section.settings.ambient_bg | image_url: width: 1500 }}');{% else %}background-image: url('{{ 'product-ambient-bg.png' | asset_url }}');{% endif %}"
+    ></div>
+  </div>
   <div class="page-width">
     <div class="product-page__inner">
       {%- comment -%} Gallery (55% Split) {%- endcomment -%}
