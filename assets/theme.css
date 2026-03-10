@@ -868,7 +868,7 @@
 .product-page { padding-top: 100px; }
 .product-page__inner { display: grid; gap: 48px; }
 @media (min-width: 750px) {
-  .product-page__inner { grid-template-columns: 55fr 45fr; gap: 72px; align-items: start; }
+  .product-page__inner { grid-template-columns: 55fr 45fr; gap: 72px; align-items: flex-start; }
 }
 
 /* Gallery Layout: Large Hero Image */
@@ -876,7 +876,9 @@
 @media (min-width: 750px) {
   .product-page__gallery {
     position: sticky;
-    top: 120px;
+    top: 140px;
+    align-self: flex-start;
+    height: max-content;
   }
 }
 
