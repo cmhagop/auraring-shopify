@@ -69,8 +69,8 @@
         "subheading": "The most advanced health sensors, engineered into the most minimal form factor."
       }
     },
-    "tungsten-banner": {
-      "type": "tungsten-video-banner",
+    "cinematic-banner": {
+      "type": "cinematic-product-banner",
       "blocks": {},
       "block_order": [],
       "settings": {
@@ -284,7 +284,7 @@
   "order": [
     "hero",
     "value-proposition",
-    "tungsten-banner",
+    "cinematic-banner",
     "how-it-works",
     "metrics-dashboard",
     "testimonials",
