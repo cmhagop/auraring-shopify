@@ -873,6 +873,12 @@
 
 /* Gallery Layout: Large Hero Image */
 .product-page__gallery { display: block; }
+@media (min-width: 750px) {
+  .product-page__gallery {
+    position: sticky;
+    top: 120px;
+  }
+}
 
 .product-page__gallery-main {
   aspect-ratio: 1; border-radius: 20px; overflow: hidden;
