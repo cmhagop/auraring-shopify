@@ -46,6 +46,48 @@
     },
     "test_education": {
       "type": "test-product-education",
+      "blocks": {
+        "info_card_Ya6dDx": {
+          "type": "info_card",
+          "settings": {
+            "title": "What's in the Box",
+            "text": "<p>Your ring comes with everything you need for 24/7 tracking.</p>",
+            "show_list": true,
+            "list_item_1": "AURARING Titanium Ring",
+            "list_item_2": "Magnetic Charging Dock",
+            "list_item_3": "USB-C to USB-A Cable",
+            "list_item_4": "Quick Start Guide"
+          }
+        },
+        "media_video_8TKLdk": {
+          "type": "media_video",
+          "settings": {
+            "video": "shopify://files/videos/d27c33adbba713e51908f15a98ad9f65_1773109458.mp4"
+          }
+        },
+        "split_row_gzAxYK": {
+          "type": "split_row",
+          "settings": {
+            "layout": "media_left",
+            "image": "shopify://shop_images/aura-hero-lifestyle.png",
+            "heading": "How it works",
+            "text": "<p>A deep dive into the technology powering your ring.</p>"
+          }
+        },
+        "brand_story_hcaaVM": {
+          "type": "brand_story",
+          "settings": {
+            "heading": "Designed to disappear.",
+            "text": "<p>We built AURARING because we believe the most powerful technology is the one you forget you're wearing. No screens, no notifications—just continuous, clinical-grade clarity.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "info_card_Ya6dDx",
+        "media_video_8TKLdk",
+        "split_row_gzAxYK",
+        "brand_story_hcaaVM"
+      ],
       "settings": {
         "heading": "Everything you need to know.",
         "subheading": "Simple setup. Invisible tracking. Incredible insights.",
