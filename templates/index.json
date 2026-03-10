@@ -75,10 +75,8 @@
         "badge_text": "Featured",
         "heading": "Auraring Tungsten",
         "subheading": "Forged from aerospace-grade tungsten carbide. Indestructible. Timeless. Unmistakably premium.",
-        "collection": "",
-        "products_to_show": 3,
-        "button_text": "All products",
-        "button_link": "shopify://collections/all"
+        "button_text": "Shop Tungsten",
+        "button_link": ""
       }
     },
     "how-it-works": {
