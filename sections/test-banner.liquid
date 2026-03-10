@@ -209,25 +209,31 @@
   }
 
   .test-banner__cta-group {
-    margin-top: 8px;
+    margin-top: 16px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 16px;
-    flex-wrap: wrap;
   }
 
   /* Extends the button snippet with a specific ghost style if the snippet doesn't natively support it perfectly */
   .test-banner__btn-ghost {
     background: transparent !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    color: #fff !important;
-    transition: border-color 0.3s ease, background-color 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    padding: 10px 32px !important;
+    font-size: 0.9rem !important;
+    letter-spacing: 0.05em !important;
+    border-radius: 40px !important;
+    min-height: unset !important;
+    transition: all 0.3s ease !important;
   }
 
   .test-banner__btn-ghost:hover {
-    border-color: #fff !important;
-    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.7) !important;
+    color: #fff !important;
+    background: rgba(255, 255, 255, 0.06) !important;
   }
 
   /* --- Responsive ------------------------------------------------- */
@@ -259,7 +265,7 @@
 
     .test-banner__cta-group {
       flex-direction: column;
-      gap: 12px;
+      gap: 16px;
       width: 100%;
     }
 
