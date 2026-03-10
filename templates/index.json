@@ -69,14 +69,11 @@
         "subheading": "The most advanced health sensors, engineered into the most minimal form factor."
       }
     },
-    "cinematic-banner": {
-      "type": "cinematic-product-banner",
+    "test-banner": {
+      "type": "test-banner",
       "settings": {
-        "badge_text": "Featured",
-        "heading": "Auraring Tungsten",
-        "subheading": "Forged from aerospace-grade tungsten carbide. Indestructible. Timeless. Unmistakably premium.",
-        "button_text": "Shop Tungsten",
-        "button_link": ""
+        "heading": "TEST BANNER",
+        "subheading": "If you can see this, the section is mounted correctly."
       }
     },
     "how-it-works": {
@@ -282,7 +279,7 @@
   "order": [
     "hero",
     "value-proposition",
-    "cinematic-banner",
+    "test-banner",
     "how-it-works",
     "metrics-dashboard",
     "testimonials",

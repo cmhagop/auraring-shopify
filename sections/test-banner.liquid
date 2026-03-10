@@ -1,0 +1,52 @@
+<section class="test-banner" data-section-id="{{ section.id }}">
+  <div class="test-banner__inner">
+    <h2 class="test-banner__heading">{{ section.settings.heading }}</h2>
+    <p class="test-banner__subheading">{{ section.settings.subheading }}</p>
+  </div>
+</section>
+
+<style>
+  .test-banner {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 100px 20px;
+    text-align: center;
+    width: 100%;
+  }
+  .test-banner__heading {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+  }
+  .test-banner__subheading {
+    font-size: 1.5rem;
+    color: #ffffff;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Test Banner",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "TEST BANNER"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "If you can see this, the section is mounted correctly."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Test Banner"
+    }
+  ]
+}
+{% endschema %}
