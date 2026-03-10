@@ -15,91 +15,10 @@
     },
     "test_education": {
       "type": "test-product-education"
-    },
-    "education": {
-      "type": "product-education",
-      "blocks": {
-        "box": { "type": "info_card", "settings": { "title": "What's in the Box" } },
-        "use": { "type": "info_card", "settings": { "title": "How to Use It", "text": "<p>Slide it on your index, middle, or ring finger. The ring seamlessly tracks your body metrics automatically—no buttons to push or watches to scroll.</p>", "show_list": false } },
-        "img": { "type": "media_image" },
-        "vid": { "type": "media_video" }
-      },
-      "block_order": ["box", "use", "img", "vid"]
-    },
-    "benefits": {
-      "type": "product-benefits",
-      "blocks": {
-        "benefit_1": { "type": "benefit", "settings": { "icon": "sleep", "title": "Precision Sleep", "text": "Tracks Deep, REM, and Light sleep stages to optimize your recovery." } },
-        "benefit_2": { "type": "benefit", "settings": { "icon": "heart", "title": "Continuous HRV", "text": "Measures the time between your heartbeats to calculate physical stress and readiness." } },
-        "benefit_3": { "type": "benefit", "settings": { "icon": "activity", "title": "Activity Monitoring", "text": "Automatically detects movement, steps, and dynamic calorie burn throughout the day." } }
-      },
-      "block_order": ["benefit_1", "benefit_2", "benefit_3"]
-    },
-    "video": {
-      "type": "cinematic-product-banner"
-    },
-    "how_it_works": {
-      "type": "how-it-works",
-      "blocks": {
-        "step_1": { "type": "step", "settings": { "title": "Wear 24/7", "text": "Slip it on and forget it's there. The aerospace-grade titanium design is lighter than a conventional ring." } },
-        "step_2": { "type": "step", "settings": { "title": "Track Invisibly", "text": "Precision infrared and NTC sensors map your heart rate, HRV, blood oxygen, and sleep stages continuously." } },
-        "step_3": { "type": "step", "settings": { "title": "Discover Insights", "text": "Open the companion app to reveal personalized readiness, activity, and recovery metrics built on clinical-grade data." } }
-      },
-      "block_order": ["step_1", "step_2", "step_3"]
-    },
-    "materials": {
-      "type": "product-materials",
-      "blocks": {
-        "feat_1": { "type": "feature", "settings": { "heading": "Hypoallergenic", "description": "Medical-grade inner molding." } },
-        "feat_2": { "type": "feature", "settings": { "heading": "Water Resistance", "description": "Up to 100 meters (10 ATM)." } },
-        "feat_3": { "type": "feature", "settings": { "heading": "Weightless", "description": "Lighter than a conventional wedding band." } }
-      },
-      "block_order": ["feat_1", "feat_2", "feat_3"]
-    },
-    "lifestyle": {
-      "type": "lifestyle"
-    },
-    "tech_specs": {
-      "type": "product-tech-specs",
-      "blocks": {
-        "spec_1": { "type": "spec", "settings": { "label": "Materials", "value": "Aerospace-grade titanium inner molding, scratch-resistant PVD coating." } },
-        "spec_2": { "type": "spec", "settings": { "label": "Battery Life", "value": "Up to 7 days on a single charge. Fully recharges in 80 minutes." } },
-        "spec_3": { "type": "spec", "settings": { "label": "Sensors", "value": "Infrared Photoplethysmography (PPG), NTC Temperature tags, 3D Accelerometer." } },
-        "spec_4": { "type": "spec", "settings": { "label": "Water Resistance", "value": "100m (10 ATM). Safe for showering, swimming, and diving." } },
-        "spec_5": { "type": "spec", "settings": { "label": "Connectivity", "value": "Bluetooth Low Energy®. Syncs seamlessly with iOS and Android." } }
-      },
-      "block_order": ["spec_1", "spec_2", "spec_3", "spec_4", "spec_5"]
-    },
-    "testimonials": {
-      "type": "testimonials",
-      "blocks": {
-        "t1": { "type": "testimonial", "settings": { "quote": "I've tried every wearable on the market. This is the only one I never take off. The sleep insights are life-changing.", "author": "Marcus T.", "role": "Pro Athlete" } },
-        "t2": { "type": "testimonial", "settings": { "quote": "The readiness score dictates my entire training schedule. It’s incredibly accurate and doesn’t look like a piece of plastic tech.", "author": "Sarah L.", "role": "Triathlete" } },
-        "t3": { "type": "testimonial", "settings": { "quote": "Finally, a health tracker that actually looks like high-end jewelry. The 7-day battery life means I actually use it.", "author": "David C.", "role": "Entrepreneur" } }
-      },
-      "block_order": ["t1", "t2", "t3"]
-    },
-    "faq": {
-      "type": "faq",
-      "blocks": {
-        "q1": { "type": "question", "settings": { "question": "What does AURARING track?", "answer": "<p>AURARING tracks heart rate, HRV, blood oxygen, skin temperature, sleep stages, activity, and readiness.</p>" } },
-        "q2": { "type": "question", "settings": { "question": "How long does the battery last?", "answer": "<p>Up to 7 days on a single charge.</p>" } },
-        "q3": { "type": "question", "settings": { "question": "Is it waterproof?", "answer": "<p>Yes. AURARING is water-resistant up to 100 meters (10 ATM).</p>" } }
-      },
-      "block_order": ["q1", "q2", "q3"]
     }
   },
   "order": [
     "main",
-    "test_education",
-    "education",
-    "benefits",
-    "video",
-    "how_it_works",
-    "materials",
-    "lifestyle",
-    "tech_specs",
-    "testimonials",
-    "faq"
+    "test_education"
   ]
 }
