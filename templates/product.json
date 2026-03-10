@@ -13,6 +13,9 @@
         "show_trust_badges": true
       }
     },
+    "test_education": {
+      "type": "test-product-education"
+    },
     "education": {
       "type": "product-education",
       "blocks": {
@@ -88,6 +91,7 @@
   },
   "order": [
     "main",
+    "test_education",
     "education",
     "benefits",
     "video",
