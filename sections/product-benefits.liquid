@@ -1,0 +1,141 @@
+<section class="product-benefits section-spacing" data-section-id="{{ section.id }}">
+  <div class="page-width">
+    <div class="product-benefits__header">
+      {%- if section.settings.badge != blank -%}
+        <div class="badge-wrapper" style="margin-bottom:16px;">
+          <span class="badge">{{ section.settings.badge }}</span>
+        </div>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="product-benefits__title">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subheading != blank -%}
+        <p class="product-benefits__subtext">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="product-benefits__grid">
+      {%- for block in section.blocks -%}
+        <div class="benefit-card" {{ block.shopify_attributes }}>
+          <div class="benefit-card__icon">
+            {%- case block.settings.icon -%}
+              {%- when 'heart' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              {%- when 'sleep' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+              {%- when 'activity' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+              {%- when 'stress' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line>
+                </svg>
+            {%- endcase -%}
+          </div>
+          {%- if block.settings.title != blank -%}
+            <h3 class="benefit-card__title">{{ block.settings.title }}</h3>
+          {%- endif -%}
+          {%- if block.settings.text != blank -%}
+            <p class="benefit-card__text">{{ block.settings.text }}</p>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Benefits",
+  "tag": "section",
+  "class": "section-product-benefits",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Badge Text",
+      "default": "Core Capabilities"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Insights that empower."
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Uncover hidden patterns in your daily health with clinical-grade precision."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "sleep", "label": "Sleep" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "activity", "label": "Activity" },
+            { "value": "stress", "label": "Stress" }
+          ],
+          "default": "sleep"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Sleep Tracking"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Detailed sleep staging, resting heart rate, and overnight HRV tracking."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Benefits",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "sleep",
+            "title": "Precision Sleep",
+            "text": "Tracks Deep, REM, and Light sleep stages to optimize your recovery."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "heart",
+            "title": "Continuous HRV",
+            "text": "Measures the time between your heartbeats to calculate physical stress and readiness."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "activity",
+            "title": "Activity Monitoring",
+            "text": "Automatically detects movement, steps, and dynamic calorie burn throughout the day."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,105 @@
+<section class="product-tech-specs section-spacing" data-section-id="{{ section.id }}">
+  <div class="page-width">
+    <div class="tech-specs__header">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="tech-specs__title">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subheading != blank -%}
+        <p class="tech-specs__subtext">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="tech-specs__grid">
+      {%- for block in section.blocks -%}
+        <div class="tech-spec-item" {{ block.shopify_attributes }}>
+          <div class="tech-spec-item__label">{{ block.settings.label }}</div>
+          <div class="tech-spec-item__value">{{ block.settings.value }}</div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Tech Specs",
+  "tag": "section",
+  "class": "section-product-tech-specs",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Hardware & Capabilities"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Minimalist exterior. Maximum intelligence."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "spec",
+      "name": "Specification",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Battery Life"
+        },
+        {
+          "type": "textarea",
+          "id": "value",
+          "label": "Value",
+          "default": "Up to 7 days"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Tech Specs",
+      "blocks": [
+        {
+          "type": "spec",
+          "settings": {
+            "label": "Materials",
+            "value": "Aerospace-grade titanium inner molding, scratch-resistant PVD coating."
+          }
+        },
+        {
+          "type": "spec",
+          "settings": {
+            "label": "Battery Life",
+            "value": "Up to 7 days on a single charge. Fully recharges in 80 minutes."
+          }
+        },
+        {
+          "type": "spec",
+          "settings": {
+            "label": "Sensors",
+            "value": "Infrared Photoplethysmography (PPG), NTC Temperature tags, 3D Accelerometer."
+          }
+        },
+        {
+          "type": "spec",
+          "settings": {
+            "label": "Water Resistance",
+            "value": "100m (10 ATM). Safe for showering, swimming, and diving."
+          }
+        },
+        {
+          "type": "spec",
+          "settings": {
+            "label": "Connectivity",
+            "value": "Bluetooth Low Energy®. Syncs seamlessly with iOS and Android."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

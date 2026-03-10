@@ -6,20 +6,8 @@
   ></div>
   <div class="page-width">
     <div class="product-page__inner">
-      {%- comment -%} Gallery {%- endcomment -%}
+      {%- comment -%} Gallery (55% Split) {%- endcomment -%}
       <div class="product-page__gallery">
-        <div class="product-page__gallery-main">
-          {%- if product.featured_image -%}
-            <img
-              src="{{ product.featured_image | image_url: width: 900 }}"
-              alt="{{ product.featured_image.alt | escape }}"
-              width="900"
-              id="ProductMainImage"
-            >
-          {%- else -%}
-            {{ 'product-1' | placeholder_svg_tag }}
-          {%- endif -%}
-        </div>
         {%- if product.images.size > 1 -%}
           <div class="product-page__gallery-thumbs">
             {%- for image in product.images -%}
@@ -34,18 +22,34 @@
             {%- endfor -%}
           </div>
         {%- endif -%}
+
+        <div class="product-page__gallery-main">
+          {%- if product.featured_image -%}
+            <img
+              src="{{ product.featured_image | image_url: width: 1200 }}"
+              alt="{{ product.featured_image.alt | escape }}"
+              width="1200"
+              id="ProductMainImage"
+            >
+          {%- else -%}
+            {{ 'product-1' | placeholder_svg_tag }}
+          {%- endif -%}
+        </div>
       </div>
 
       {%- comment -%} Product Info {%- endcomment -%}
       <div class="product-page__info">
-        {%- if product.vendor -%}
-          <div class="product-page__vendor">{{ product.vendor }}</div>
-        {%- endif -%}
-
-        <h1 class="product-page__title">{{ product.title }}</h1>
+        <div class="product-page__title-wrap">
+          {%- if product.vendor -%}
+            <div class="product-page__vendor">{{ product.vendor }}</div>
+          {%- endif -%}
+          <h1 class="product-page__title">{{ product.title }}</h1>
+        </div>
 
         <div class="product-page__price">
-          <span>{{ product.selected_or_first_available_variant.price | money }}</span>
+          <span class="product-page__price-current">
+            {{- product.selected_or_first_available_variant.price | money -}}
+          </span>
           {%- if product.selected_or_first_available_variant.compare_at_price
               > product.selected_or_first_available_variant.price
           -%}
@@ -55,8 +59,16 @@
           {%- endif -%}
         </div>
 
+        {%- if section.settings.show_quick_benefits -%}
+          <ul class="product-page__quick-benefits">
+            <li>Clinical-grade precision sensors</li>
+            <li>Up to 7 days battery life</li>
+            <li>Ultra-lightweight aerospace titanium</li>
+          </ul>
+        {%- endif -%}
+
         {%- if product.description != blank -%}
-          <div class="product-page__description">{{ product.description }}</div>
+          <div class="product-page__description">{{ product.description | truncatewords: 24 }}</div>
         {%- endif -%}
 
         {%- comment -%} Variants {%- endcomment -%}
@@ -80,22 +92,68 @@
         {%- endunless -%}
 
         {%- comment -%} Add to Cart {%- endcomment -%}
-        <form method="post" action="/cart/add" accept-charset="UTF-8" enctype="multipart/form-data">
-          <input type="hidden" name="form_type" value="product">
-          <input type="hidden" name="utf8" value="✓">
-          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-          {%-
-            render 'button',
-            label: 'Add to Cart',
-            style: 'accent',
-            size: 'lg',
-            full: true,
-            type: 'submit',
-            disabled: product.selected_or_first_available_variant.available == false
-          -%}
-        </form>
+        <div class="product-page__buy-box">
+          <form method="post" action="/cart/add" accept-charset="UTF-8" enctype="multipart/form-data">
+            <input type="hidden" name="form_type" value="product">
+            <input type="hidden" name="utf8" value="✓">
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+            {%-
+              render 'button',
+              label: 'Add to Cart',
+              style: 'primary',
+              size: 'lg',
+              full: true,
+              type: 'submit',
+              disabled: product.selected_or_first_available_variant.available == false
+            -%}
+          </form>
 
-        <hr class="glow-divider" style="margin-block:36px">
+          {%- if section.settings.show_trust_badges -%}
+            <div class="product-page__trust-signals">
+              <div class="trust-signal">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                <span>1-Year Warranty</span>
+              </div>
+              <div class="trust-signal">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle>
+                </svg>
+                <span>Free Insured Shipping</span>
+              </div>
+              <div class="trust-signal">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>30-Day Risk-Free Trial</span>
+              </div>
+            </div>
+          {%- endif -%}
+        </div>
+
+        <hr class="glow-divider" style="margin-block:36px; opacity:0.5;">
 
         {%- comment -%} Collapsible tabs {%- endcomment -%}
         {%- for block in section.blocks -%}
@@ -125,6 +183,22 @@
       "id": "ambient_bg",
       "label": "Ambient background layer",
       "info": "Heavy blur and opacity blend will be applied automatically."
+    },
+    {
+      "type": "header",
+      "content": "Credibility Signals"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_quick_benefits",
+      "label": "Show quick bullet benefits under price",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_trust_badges",
+      "label": "Show trust badges under Add to Cart",
+      "default": true
     }
   ],
   "blocks": [
