@@ -100,6 +100,56 @@
         {%- endfor -%}
       </div>
     </div>
+
+    {%- comment -%} Linear Storytelling Rows {%- endcomment -%}
+    <div class="education__storytelling">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'split_row' -%}
+          <div
+            class="education__split-row{% if block.settings.layout == 'media_right' %} education__split-row--reverse{% endif %}"
+            {{ block.shopify_attributes }}
+          >
+            <div class="education__split-media">
+              {%- if block.settings.image != blank -%}
+                <img
+                  src="{{ block.settings.image | image_url: width: 1000 }}"
+                  alt="{{ block.settings.image.alt | escape }}"
+                  width="1000"
+                  height="auto"
+                  loading="lazy"
+                >
+              {%- elsif block.settings.video != blank -%}
+                {{
+                  block.settings.video
+                  | video_tag: autoplay: true, loop: true, muted: true, controls: false, image_size: '1000x'
+                }}
+              {%- else -%}
+                <div class="education__media-placeholder">No Media Selected</div>
+              {%- endif -%}
+            </div>
+
+            <div class="education__split-text">
+              {%- if block.settings.heading != blank -%}
+                <h3 class="education__split-title">{{ block.settings.heading }}</h3>
+              {%- endif -%}
+              {%- if block.settings.text != blank -%}
+                <div class="education__split-desc">{{ block.settings.text }}</div>
+              {%- endif -%}
+            </div>
+          </div>
+
+        {%- elsif block.type == 'brand_story' -%}
+          <div class="education__brand-story" {{ block.shopify_attributes }}>
+            {%- if block.settings.heading != blank -%}
+              <h3 class="education__brand-title">{{ block.settings.heading }}</h3>
+            {%- endif -%}
+            {%- if block.settings.text != blank -%}
+              <div class="education__brand-text">{{ block.settings.text }}</div>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
   </div>
 </section>
 
@@ -185,6 +235,64 @@
           "label": "Shopify-hosted Video"
         }
       ]
+    },
+    {
+      "type": "split_row",
+      "name": "Split Row (Media + Text)",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "select",
+          "id": "layout",
+          "label": "Media Layout on Desktop",
+          "options": [
+            { "value": "media_left", "label": "Media Left" },
+            { "value": "media_right", "label": "Media Right" }
+          ],
+          "default": "media_left"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video (Overrides image)"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "How it works"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Description",
+          "default": "<p>A deep dive into the technology powering your ring.</p>"
+        }
+      ]
+    },
+    {
+      "type": "brand_story",
+      "name": "Brand Story / Philosophy",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Designed to disappear."
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Description",
+          "default": "<p>We built AURARING because we believe the most powerful technology is the one you forget you're wearing. No screens, no notifications—just continuous, clinical-grade clarity.</p>"
+        }
+      ]
     }
   ],
   "presets": [
@@ -201,7 +309,16 @@
           }
         },
         { "type": "media_image" },
-        { "type": "media_video" }
+        { "type": "media_video" },
+        {
+          "type": "split_row",
+          "settings": {
+            "layout": "media_right",
+            "heading": "Track Invisibly.",
+            "text": "<p>Precision infrared sensors map your heart rate, HRV, blood oxygen, and sleep stages continuously from your finger—where the signal is clearest.</p>"
+          }
+        },
+        { "type": "brand_story" }
       ]
     }
   ]
