@@ -1,20 +1,56 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "main-product",
       "blocks": {
-        "tab-desc": { "type": "collapsible", "settings": { "heading": "Description", "content": "<p>Detailed product information.</p>" } },
-        "tab-specs": { "type": "collapsible", "settings": { "heading": "Specifications", "content": "<p>Materials, dimensions, and technical specifications.</p>" } },
-        "tab-ship": { "type": "collapsible", "settings": { "heading": "Shipping & Returns", "content": "<p>Free worldwide shipping. 30-day hassle-free returns.</p>" } }
+        "tab-desc": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Description",
+            "content": "<p>Detailed product information.</p>"
+          }
+        },
+        "tab-specs": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Specifications",
+            "content": "<p>Materials, dimensions, and technical specifications.</p>"
+          }
+        },
+        "tab-ship": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Shipping & Returns",
+            "content": "<p>Free worldwide shipping. 30-day hassle-free returns.</p>"
+          }
+        }
       },
-      "block_order": ["tab-desc", "tab-specs", "tab-ship"],
+      "block_order": [
+        "tab-desc",
+        "tab-specs",
+        "tab-ship"
+      ],
       "settings": {
         "show_quick_benefits": true,
         "show_trust_badges": true
       }
     },
     "test_education": {
-      "type": "test-product-education"
+      "type": "test-product-education",
+      "settings": {
+        "heading": "Everything you need to know.",
+        "subheading": "Simple setup. Invisible tracking. Incredible insights.",
+        "layout": "media_first"
+      }
     }
   },
   "order": [
