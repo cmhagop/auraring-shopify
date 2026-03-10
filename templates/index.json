@@ -73,16 +73,16 @@
       "type": "test-banner",
       "settings": {
         "badge_text": "Featured",
-        "heading": "TEST BANNER",
-        "subheading": "If you can see this, the section is mounted correctly.",
+        "heading": "Auraring Tungsten",
+        "subheading": "Auraring Tungsten. Cold precision, forged to endure.",
         "video": "shopify://files/videos/d27c33adbba713e51908f15a98ad9f65_1773109458.mp4",
         "video_url": "",
         "cta_text": "Shop Tungsten",
-        "cta_product": "",
+        "cta_product": "auraring-tungsten",
         "cta_link": "",
         "cta_text_2": "All Products",
         "cta_product_2": "",
-        "cta_link_2": ""
+        "cta_link_2": "shopify://collections/all"
       }
     },
     "how-it-works": {
