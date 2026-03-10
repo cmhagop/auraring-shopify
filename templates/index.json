@@ -71,6 +71,8 @@
     },
     "tungsten-banner": {
       "type": "tungsten-video-banner",
+      "blocks": {},
+      "block_order": [],
       "settings": {
         "badge_text": "Featured",
         "heading": "Auraring Tungsten",
