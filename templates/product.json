@@ -97,16 +97,33 @@
     "video_gallery": {
       "type": "product-video-gallery",
       "blocks": {
-        "v1": { "type": "video_slot" },
-        "v2": { "type": "video_slot" },
-        "v3": { "type": "video_slot" }
+        "v1": {
+          "type": "video_slot",
+          "settings": {}
+        },
+        "v2": {
+          "type": "video_slot",
+          "settings": {}
+        },
+        "v3": {
+          "type": "video_slot",
+          "settings": {}
+        }
       },
-      "block_order": ["v1", "v2", "v3"]
+      "block_order": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "settings": {}
     },
     "reviews": {
       "type": "product-reviews",
       "blocks": {
-        "r1": { "type": "review" },
+        "r1": {
+          "type": "review",
+          "settings": {}
+        },
         "r2": {
           "type": "review",
           "settings": {
@@ -124,7 +141,12 @@
           }
         }
       },
-      "block_order": ["r1", "r2", "r3"]
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ],
+      "settings": {}
     }
   },
   "order": [
