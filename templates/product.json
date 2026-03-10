@@ -93,10 +93,44 @@
         "subheading": "Simple setup. Invisible tracking. Incredible insights.",
         "layout": "text_first"
       }
+    },
+    "video_gallery": {
+      "type": "product-video-gallery",
+      "blocks": {
+        "v1": { "type": "video_slot" },
+        "v2": { "type": "video_slot" },
+        "v3": { "type": "video_slot" }
+      },
+      "block_order": ["v1", "v2", "v3"]
+    },
+    "reviews": {
+      "type": "product-reviews",
+      "blocks": {
+        "r1": { "type": "review" },
+        "r2": {
+          "type": "review",
+          "settings": {
+            "title": "Game-changer for recovery.",
+            "text": "<p>The readiness score dictates my entire training schedule. It’s incredibly accurate and doesn’t look like a piece of plastic tech.</p>",
+            "author": "Sarah L."
+          }
+        },
+        "r3": {
+          "type": "review",
+          "settings": {
+            "title": "Aesthetics meet data.",
+            "text": "<p>Finally, a health tracker that actually looks like high-end jewelry. The 7-day battery life means I actually use it without constantly charging.</p>",
+            "author": "David C."
+          }
+        }
+      },
+      "block_order": ["r1", "r2", "r3"]
     }
   },
   "order": [
     "main",
-    "test_education"
+    "test_education",
+    "video_gallery",
+    "reviews"
   ]
 }
