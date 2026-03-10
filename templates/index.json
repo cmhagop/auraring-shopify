@@ -69,8 +69,8 @@
         "subheading": "The most advanced health sensors, engineered into the most minimal form factor."
       }
     },
-    "product-showcase": {
-      "type": "product-showcase",
+    "tungsten-banner": {
+      "type": "tungsten-video-banner",
       "settings": {
         "badge_text": "Featured",
         "heading": "Auraring Tungsten",
@@ -282,7 +282,7 @@
   "order": [
     "hero",
     "value-proposition",
-    "product-showcase",
+    "tungsten-banner",
     "how-it-works",
     "metrics-dashboard",
     "testimonials",

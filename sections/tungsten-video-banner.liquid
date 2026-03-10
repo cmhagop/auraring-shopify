@@ -1,6 +1,6 @@
-<section class="showcase-banner section-spacing" data-section-id="{{ section.id }}">
+<section class="tungsten-banner section-spacing" data-section-id="{{ section.id }}">
   {%- comment -%} === Video / Image media layer === {%- endcomment -%}
-  <div class="showcase-banner__media">
+  <div class="tungsten-banner__media">
     {%- if section.settings.video != blank -%}
       {{
         section.settings.video
@@ -10,13 +10,13 @@
           muted: true,
           playsinline: true,
           controls: false,
-          class: 'showcase-banner__video'
+          class: 'tungsten-banner__video'
       }}
     {%- elsif section.settings.video_url != blank -%}
       {%- if section.settings.video_url.type == 'youtube' -%}
         <iframe
           src="https://www.youtube.com/embed/{{ section.settings.video_url.id }}?autoplay=1&mute=1&loop=1&playlist={{ section.settings.video_url.id }}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
-          class="showcase-banner__video showcase-banner__video--iframe"
+          class="tungsten-banner__video tungsten-banner__video--iframe"
           allow="autoplay; encrypted-media"
           allowfullscreen
           loading="lazy"
@@ -25,7 +25,7 @@
       {%- elsif section.settings.video_url.type == 'vimeo' -%}
         <iframe
           src="https://player.vimeo.com/video/{{ section.settings.video_url.id }}?autoplay=1&muted=1&loop=1&background=1&playsinline=1"
-          class="showcase-banner__video showcase-banner__video--iframe"
+          class="tungsten-banner__video tungsten-banner__video--iframe"
           allow="autoplay; encrypted-media"
           allowfullscreen
           loading="lazy"
@@ -36,43 +36,43 @@
       <img
         src="{{ section.settings.fallback_image | image_url: width: 1920 }}"
         alt="{{ section.settings.heading | escape }}"
-        class="showcase-banner__video"
+        class="tungsten-banner__video"
         loading="lazy"
       >
     {%- else -%}
       <img
         src="{{ 'hero-banner.png' | asset_url }}"
         alt="{{ section.settings.heading | escape }}"
-        class="showcase-banner__video"
+        class="tungsten-banner__video"
         loading="lazy"
       >
     {%- endif -%}
 
     {%- comment -%} === Edge-fade overlays === {%- endcomment -%}
-    <div class="showcase-banner__fade showcase-banner__fade--top"></div>
-    <div class="showcase-banner__fade showcase-banner__fade--bottom"></div>
-    <div class="showcase-banner__fade showcase-banner__fade--left"></div>
-    <div class="showcase-banner__fade showcase-banner__fade--right"></div>
+    <div class="tungsten-banner__fade tungsten-banner__fade--top"></div>
+    <div class="tungsten-banner__fade tungsten-banner__fade--bottom"></div>
+    <div class="tungsten-banner__fade tungsten-banner__fade--left"></div>
+    <div class="tungsten-banner__fade tungsten-banner__fade--right"></div>
   </div>
 
   {%- comment -%} === Content overlay === {%- endcomment -%}
-  <div class="showcase-banner__content">
+  <div class="tungsten-banner__content">
     <div class="page-width">
       {%- if section.settings.badge_text != blank -%}
-        <div class="showcase-banner__badge">
+        <div class="tungsten-banner__badge">
           <span class="badge">{{ section.settings.badge_text }}</span>
         </div>
       {%- endif -%}
 
-      <h2 class="showcase-banner__heading">{{ section.settings.heading }}</h2>
+      <h2 class="tungsten-banner__heading">{{ section.settings.heading }}</h2>
 
       {%- if section.settings.subheading != blank -%}
-        <p class="showcase-banner__subheading">{{ section.settings.subheading }}</p>
+        <p class="tungsten-banner__subheading">{{ section.settings.subheading }}</p>
       {%- endif -%}
 
       {%- if section.settings.button_text != blank -%}
         {%- assign btn_url = section.settings.button_product.url | default: section.settings.button_link -%}
-        <div class="showcase-banner__cta">
+        <div class="tungsten-banner__cta">
           {%- render 'button', label: section.settings.button_text, url: btn_url, style: 'accent', size: 'lg' -%}
         </div>
       {%- endif -%}
@@ -82,9 +82,9 @@
 
 <style>
   /* ================================================================
-     SHOWCASE BANNER — Cinematic single-product video section
+     TUNGSTEN BANNER — Cinematic single-product video section
      ================================================================ */
-  .showcase-banner {
+  .tungsten-banner {
     position: relative;
     width: 100%;
     min-height: 80vh;
@@ -96,13 +96,13 @@
   }
 
   /* --- Media layer ------------------------------------------------ */
-  .showcase-banner__media {
+  .tungsten-banner__media {
     position: absolute;
     inset: 0;
     z-index: 0;
   }
 
-  .showcase-banner__video {
+  .tungsten-banner__video {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -110,7 +110,7 @@
     display: block;
   }
 
-  .showcase-banner__video--iframe {
+  .tungsten-banner__video--iframe {
     border: 0;
     pointer-events: none;
     /* Scale the iframe up to avoid letterboxing */
@@ -123,13 +123,13 @@
   }
 
   /* --- Edge-fade gradient overlays -------------------------------- */
-  .showcase-banner__fade {
+  .tungsten-banner__fade {
     position: absolute;
     z-index: 1;
     pointer-events: none;
   }
 
-  .showcase-banner__fade--top {
+  .tungsten-banner__fade--top {
     top: 0;
     left: 0;
     right: 0;
@@ -137,7 +137,7 @@
     background: linear-gradient(180deg, var(--color-bg) 0%, rgba(10, 10, 10, 0.7) 40%, transparent 100%);
   }
 
-  .showcase-banner__fade--bottom {
+  .tungsten-banner__fade--bottom {
     bottom: 0;
     left: 0;
     right: 0;
@@ -145,7 +145,7 @@
     background: linear-gradient(0deg, var(--color-bg) 0%, rgba(10, 10, 10, 0.75) 35%, transparent 100%);
   }
 
-  .showcase-banner__fade--left {
+  .tungsten-banner__fade--left {
     top: 0;
     bottom: 0;
     left: 0;
@@ -153,7 +153,7 @@
     background: linear-gradient(90deg, var(--color-bg) 0%, transparent 100%);
   }
 
-  .showcase-banner__fade--right {
+  .tungsten-banner__fade--right {
     top: 0;
     bottom: 0;
     right: 0;
@@ -162,7 +162,7 @@
   }
 
   /* --- Content overlay -------------------------------------------- */
-  .showcase-banner__content {
+  .tungsten-banner__content {
     position: relative;
     z-index: 2;
     text-align: center;
@@ -170,11 +170,11 @@
     width: 100%;
   }
 
-  .showcase-banner__badge {
+  .tungsten-banner__badge {
     margin-bottom: 24px;
   }
 
-  .showcase-banner__heading {
+  .tungsten-banner__heading {
     font-family: var(--font-heading);
     font-size: clamp(2.8rem, 7vw, 5.5rem);
     font-weight: 500;
@@ -185,7 +185,7 @@
     margin-bottom: 20px;
   }
 
-  .showcase-banner__subheading {
+  .tungsten-banner__subheading {
     font-family: var(--font-body);
     font-size: clamp(1rem, 1.5vw, 1.15rem);
     color: rgba(240, 240, 240, 0.65);
@@ -196,34 +196,34 @@
     text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
   }
 
-  .showcase-banner__cta {
+  .tungsten-banner__cta {
     margin-top: 8px;
   }
 
   /* --- Responsive ------------------------------------------------- */
   @media (max-width: 749px) {
-    .showcase-banner {
+    .tungsten-banner {
       min-height: 70vh;
     }
 
-    .showcase-banner__content {
+    .tungsten-banner__content {
       padding: 60px 16px;
     }
 
-    .showcase-banner__fade--top {
+    .tungsten-banner__fade--top {
       height: 25%;
     }
 
-    .showcase-banner__fade--bottom {
+    .tungsten-banner__fade--bottom {
       height: 35%;
     }
 
-    .showcase-banner__fade--left,
-    .showcase-banner__fade--right {
+    .tungsten-banner__fade--left,
+    .tungsten-banner__fade--right {
       width: 8%;
     }
 
-    .showcase-banner__heading {
+    .tungsten-banner__heading {
       font-size: clamp(2rem, 10vw, 3.2rem);
     }
   }
@@ -231,9 +231,9 @@
 
 {% schema %}
 {
-  "name": "Product Showcase",
+  "name": "Tungsten Video Banner",
   "tag": "section",
-  "class": "product-showcase-video",
+  "class": "tungsten-video-banner-section",
   "settings": [
     { "type": "text", "id": "badge_text", "label": "Badge text", "default": "Featured" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Auraring Tungsten" },
@@ -250,7 +250,7 @@
     {
       "type": "video",
       "id": "video",
-      "label": "Video",
+      "label": "Shopify Video",
       "info": "Upload a video in Settings > Files, then select it here. It will autoplay muted and loop."
     },
     {
@@ -276,7 +276,7 @@
   ],
   "presets": [
     {
-      "name": "Product Banner"
+      "name": "Tungsten Video Banner"
     }
   ]
 }
