@@ -1,11 +1,24 @@
 <section class="product-education section-spacing" data-section-id="{{ section.id }}">
   <div class="page-width">
+    {%- comment -%} GUARANTEED VISIBLE FALLBACK AS REQUESTED {%- endcomment -%}
+    <div style="background: #111; border: 1px solid rgba(255,255,255,0.1); padding: 40px; border-radius: 16px; margin-bottom: 40px; text-align: center;">
+      <h2 style="color: #fff; margin-bottom: 8px;">Product Education</h2>
+      <p style="color: #aaa; margin: 0;">
+        If you can see this, the section was successfully mounted into the Shopify template.
+      </p>
+    </div>
+
     <div class="education__header text-center">
       {%- if section.settings.heading != blank -%}
         <h2 class="education__title">{{ section.settings.heading }}</h2>
+      {%- else -%}
+        <h2 class="education__title">Everything you need to know.</h2>
       {%- endif -%}
+
       {%- if section.settings.subheading != blank -%}
         <p class="education__subtext">{{ section.settings.subheading }}</p>
+      {%- else -%}
+        <p class="education__subtext">Simple setup. Invisible tracking. Incredible insights.</p>
       {%- endif -%}
     </div>
 
@@ -73,7 +86,9 @@
                   loading="lazy"
                 >
               {%- else -%}
-                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                <div style="width: 100%; height: 100%; background: #222; display: flex; align-items: center; justify-content: center; color: #666; font-size: 0.9rem;">
+                  No Image Selected
+                </div>
               {%- endif -%}
             </div>
           {%- elsif block.type == 'media_video' -%}
@@ -84,7 +99,9 @@
                   | video_tag: autoplay: true, loop: true, muted: true, controls: false, image_size: '800x'
                 }}
               {%- else -%}
-                {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg placeholder-dark' }}
+                <div style="width: 100%; height: 100%; background: #222; display: flex; align-items: center; justify-content: center; color: #666; font-size: 0.9rem;">
+                  No Video Selected
+                </div>
               {%- endif -%}
             </div>
           {%- endif -%}
