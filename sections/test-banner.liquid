@@ -64,10 +64,23 @@
         <p class="test-banner__subheading">{{ section.settings.subheading }}</p>
       {%- endif -%}
 
-      {%- if section.settings.cta_text != blank -%}
-        {%- assign btn_url = section.settings.cta_product.url | default: section.settings.cta_link -%}
-        <div class="test-banner__cta">
-          {%- render 'button', label: section.settings.cta_text, url: btn_url, style: 'accent', size: 'lg' -%}
+      {%- if section.settings.cta_text != blank or section.settings.cta_text_2 != blank -%}
+        <div class="test-banner__cta-group">
+          {%- if section.settings.cta_text != blank -%}
+            {%- assign btn_url = section.settings.cta_product.url | default: section.settings.cta_link -%}
+            {%- render 'button', label: section.settings.cta_text, url: btn_url, style: 'accent', size: 'lg' -%}
+          {%- endif -%}
+
+          {%- if section.settings.cta_text_2 != blank -%}
+            {%- assign btn_url_2 = section.settings.cta_product_2.url | default: section.settings.cta_link_2 -%}
+            {%- render 'button',
+              label: section.settings.cta_text_2,
+              url: btn_url_2,
+              style: 'ghost',
+              size: 'lg',
+              class: 'test-banner__btn-ghost'
+            -%}
+          {%- endif -%}
         </div>
       {%- endif -%}
     </div>
@@ -195,8 +208,26 @@
     text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
   }
 
-  .test-banner__cta {
+  .test-banner__cta-group {
     margin-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  /* Extends the button snippet with a specific ghost style if the snippet doesn't natively support it perfectly */
+  .test-banner__btn-ghost {
+    background: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: #fff !important;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+  }
+
+  .test-banner__btn-ghost:hover {
+    border-color: #fff !important;
+    background: rgba(255, 255, 255, 0.05) !important;
   }
 
   /* --- Responsive ------------------------------------------------- */
@@ -224,6 +255,16 @@
 
     .test-banner__heading {
       font-size: clamp(2rem, 10vw, 3.2rem);
+    }
+
+    .test-banner__cta-group {
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .test-banner__cta-group .button {
+      width: 100%;
     }
   }
 </style>
@@ -265,11 +306,18 @@
     },
     {
       "type": "header",
-      "content": "Call to action"
+      "content": "Primary call to action"
     },
     { "type": "text", "id": "cta_text", "label": "Button text", "default": "Shop Tungsten" },
     { "type": "product", "id": "cta_product", "label": "Button product" },
-    { "type": "url", "id": "cta_link", "label": "Button link (fallback)" }
+    { "type": "url", "id": "cta_link", "label": "Button link (fallback)" },
+    {
+      "type": "header",
+      "content": "Secondary call to action"
+    },
+    { "type": "text", "id": "cta_text_2", "label": "Secondary button text", "default": "All Products" },
+    { "type": "product", "id": "cta_product_2", "label": "Secondary button product" },
+    { "type": "url", "id": "cta_link_2", "label": "Secondary button link (fallback)" }
   ],
   "presets": [
     {
