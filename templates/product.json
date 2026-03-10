@@ -13,6 +13,16 @@
         "show_trust_badges": true
       }
     },
+    "education": {
+      "type": "product-education",
+      "blocks": {
+        "box": { "type": "info_card", "settings": { "title": "What's in the Box" } },
+        "use": { "type": "info_card", "settings": { "title": "How to Use It", "text": "<p>Slide it on your index, middle, or ring finger. The ring seamlessly tracks your body metrics automatically—no buttons to push or watches to scroll.</p>", "show_list": false } },
+        "img": { "type": "media_image" },
+        "vid": { "type": "media_video" }
+      },
+      "block_order": ["box", "use", "img", "vid"]
+    },
     "benefits": {
       "type": "product-benefits",
       "blocks": {
@@ -78,6 +88,7 @@
   },
   "order": [
     "main",
+    "education",
     "benefits",
     "video",
     "how_it_works",
