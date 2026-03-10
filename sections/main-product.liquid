@@ -8,27 +8,13 @@
     <div class="product-page__inner">
       {%- comment -%} Gallery (55% Split) {%- endcomment -%}
       <div class="product-page__gallery">
-        {%- if product.images.size > 1 -%}
-          <div class="product-page__gallery-thumbs">
-            {%- for image in product.images -%}
-              <div class="product-page__gallery-thumb{% if forloop.first %} is-active{% endif %}">
-                <img
-                  src="{{ image | image_url: width: 200 }}"
-                  alt="{{ image.alt | escape }}"
-                  width="200"
-                  loading="lazy"
-                >
-              </div>
-            {%- endfor -%}
-          </div>
-        {%- endif -%}
-
         <div class="product-page__gallery-main">
           {%- if product.featured_image -%}
             <img
               src="{{ product.featured_image | image_url: width: 1200 }}"
               alt="{{ product.featured_image.alt | escape }}"
               width="1200"
+              height="auto"
               id="ProductMainImage"
             >
           {%- else -%}
@@ -93,7 +79,7 @@
 
         {%- comment -%} Add to Cart {%- endcomment -%}
         <div class="product-page__buy-box">
-          <form method="post" action="/cart/add" accept-charset="UTF-8" enctype="multipart/form-data">
+          <form method="post" action="{{ routes.cart_add_url }}" accept-charset="UTF-8" enctype="multipart/form-data">
             <input type="hidden" name="form_type" value="product">
             <input type="hidden" name="utf8" value="✓">
             <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
