@@ -71,8 +71,6 @@
     },
     "cinematic-banner": {
       "type": "cinematic-product-banner",
-      "blocks": {},
-      "block_order": [],
       "settings": {
         "badge_text": "Featured",
         "heading": "Auraring Tungsten",
