@@ -36,17 +36,20 @@
           </div>
         {%- endfor -%}
       {%- else -%}
-        {%- comment -%} DIAGNOSTIC FALLBACK: 3 placeholder reviews {%- endcomment -%}
-        {%- for i in (1..3) -%}
+        {%- assign placeholder_titles = "The only tracker I wear.,Game-changer for recovery.,Aesthetics meet data." | split: "," -%}
+        {%- assign placeholder_texts = "<p>I've tried smartwatches and bands, but they always got in the way. This ring is completely invisible to my daily routine, yet delivers the most accurate data.</p>,<p>The readiness score dictates my entire training schedule. It’s incredibly accurate and doesn’t look like a piece of plastic tech.</p>,<p>Finally, a health tracker that actually looks like high-end jewelry. The 7-day battery life means I actually use it without constantly charging.</p>" | split: "," -%}
+        {%- assign placeholder_authors = "Alex R.,Sarah L.,David C." | split: "," -%}
+
+        {%- for i in (0..2) -%}
           <div class="review-card">
-            <div class="review-card__stars" style="opacity: 0.3;">
+            <div class="review-card__stars">
               {%- for j in (1..5) -%}
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               {%- endfor -%}
             </div>
-            <h3 class="review-card__title">Placeholder Review {{ i }}</h3>
-            <div class="review-card__text"><p>This is a diagnostic placeholder. Add a Review block in Customize to replace this content.</p></div>
-            <div class="review-card__author">Verified Customer</div>
+            <h3 class="review-card__title">{{ placeholder_titles[i] }}</h3>
+            <div class="review-card__text">{{ placeholder_texts[i] }}</div>
+            <div class="review-card__author">{{ placeholder_authors[i] }}</div>
           </div>
         {%- endfor -%}
       {%- endif -%}

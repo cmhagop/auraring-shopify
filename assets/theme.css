@@ -1109,29 +1109,151 @@
 .education__brand-text { font-size: 1.15rem; color: var(--color-text-muted); max-width: 800px; margin: 0 auto; line-height: 1.8; }
 
 /* Product Video Gallery */
-.product-video-gallery { border-top: 1px solid var(--color-border); }
-.video-gallery__header { text-align: center; margin-bottom: 48px; }
-.video-gallery__title { font-family: var(--font-heading); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 500; margin-bottom: 16px; }
-.video-gallery__subtext { font-size: 1.05rem; color: var(--color-text-muted); max-width: 600px; margin-inline: auto; }
-.video-gallery__grid { display: grid; gap: 24px; grid-template-columns: 1fr; }
-@media (min-width: 750px) { .video-gallery__grid { grid-template-columns: repeat(3, 1fr); gap: 32px; } }
-.video-gallery__item { border-radius: 16px; overflow: hidden; background: var(--color-bg-card); border: 1px solid var(--color-border); aspect-ratio: 16/9; position: relative; }
-.video-gallery__item video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.product-video-gallery { 
+  border-top: 1px solid var(--color-border);
+  background: linear-gradient(to bottom, #000, #050505);
+}
+.video-gallery__header { text-align: center; margin-bottom: 64px; }
+.video-gallery__title { 
+  font-family: var(--font-heading); 
+  font-size: clamp(2.2rem, 4vw, 3.5rem); 
+  font-weight: 500; 
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+.video-gallery__subtext { 
+  font-size: 1.1rem; 
+  color: var(--color-text-muted); 
+  max-width: 640px; 
+  margin-inline: auto;
+  line-height: 1.6;
+}
+.video-gallery__grid { 
+  display: grid; 
+  gap: 32px; 
+  grid-template-columns: 1fr; 
+}
+@media (min-width: 750px) { 
+  .video-gallery__grid { 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 40px; 
+  } 
+}
+.video-gallery__item { 
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.video-gallery__media { 
+  border-radius: 24px; 
+  overflow: hidden; 
+  background: var(--color-bg-card); 
+  border: 1px solid rgba(255,255,255,0.05); 
+  aspect-ratio: 16/9; 
+  position: relative; 
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.6s ease;
+}
+.video-gallery__item:hover .video-gallery__media {
+  transform: translateY(-8px);
+  border-color: rgba(255,255,255,0.12);
+}
+.video-gallery__media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.video-gallery__content { text-align: left; padding: 0 4px; }
+.video-gallery__item-title { 
+  font-size: 1.25rem; 
+  font-weight: 500; 
+  margin-bottom: 10px; 
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+.video-gallery__item-caption { 
+  font-size: 0.95rem; 
+  color: var(--color-text-muted); 
+  line-height: 1.6;
+}
 
 /* Product Reviews */
-.product-reviews { border-top: 1px solid var(--color-border); }
-.reviews__header { text-align: center; margin-bottom: 56px; }
-.reviews__title { font-family: var(--font-heading); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 500; margin-bottom: 16px; }
-.reviews__grid { display: grid; gap: 24px; grid-template-columns: 1fr; }
-@media (min-width: 750px) { .reviews__grid { grid-template-columns: repeat(3, 1fr); gap: 32px; } }
-.review-card { background: var(--color-bg-elevated); border: 1px solid var(--color-border); padding: 32px; border-radius: 16px; display: flex; flex-direction: column; height: 100%; transition: transform 0.4s ease, border-color 0.4s ease; }
-.review-card:hover { border-color: rgba(184,184,192,0.15); transform: translateY(-4px); }
-.review-card__stars { display: flex; gap: 4px; color: var(--color-accent); margin-bottom: 16px; }
-.review-card__stars svg { width: 18px; height: 18px; }
-.review-card__title { font-size: 1.15rem; font-weight: 600; margin-bottom: 12px; color: var(--color-text); }
-.review-card__text { font-size: 0.95rem; color: var(--color-text-muted); line-height: 1.6; flex-grow: 1; margin-bottom: 24px; }
-.review-card__author { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text); border-top: 1px solid var(--color-border); padding-top: 16px; display: flex; align-items: center; gap: 8px; }
-.review-card__author::before { content: ""; display: block; width: 24px; height: 1px; background: var(--color-accent); }
+.product-reviews { 
+  border-top: 1px solid var(--color-border);
+  background: #000;
+}
+.reviews__header { text-align: center; margin-bottom: 72px; }
+.reviews__title { 
+  font-family: var(--font-heading); 
+  font-size: clamp(2.2rem, 4vw, 3.5rem); 
+  font-weight: 500; 
+  margin-bottom: 20px;
+}
+.reviews__grid { 
+  display: grid; 
+  gap: 32px; 
+  grid-template-columns: 1fr; 
+}
+@media (min-width: 750px) { 
+  .reviews__grid { 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 32px; 
+  } 
+}
+.review-card { 
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.05); 
+  padding: 40px; 
+  border-radius: 28px; 
+  display: flex; 
+  flex-direction: column; 
+  height: 100%; 
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.review-card:hover { 
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.1); 
+  transform: translateY(-10px); 
+}
+.review-card__stars { 
+  display: flex; 
+  gap: 6px; 
+  color: var(--color-accent); 
+  margin-bottom: 24px; 
+}
+.review-card__stars svg { width: 20px; height: 20px; }
+.review-card__title { 
+  font-size: 1.35rem; 
+  font-weight: 500; 
+  margin-bottom: 16px; 
+  color: var(--color-text);
+  line-height: 1.3;
+}
+.review-card__text { 
+  font-size: 1rem; 
+  color: var(--color-text-muted); 
+  line-height: 1.7; 
+  flex-grow: 1; 
+  margin-bottom: 32px;
+  font-style: italic;
+}
+.review-card__author { 
+  font-size: 0.82rem; 
+  font-weight: 600; 
+  text-transform: uppercase; 
+  letter-spacing: 0.12em; 
+  color: var(--color-text); 
+  border-top: 1px solid rgba(255,255,255,0.08); 
+  padding-top: 24px; 
+  display: flex; 
+  align-items: center; 
+  gap: 12px; 
+}
+.review-card__author::before { 
+  content: ""; 
+  display: block; 
+  width: 32px; 
+  height: 1px; 
+  background: var(--color-accent); 
+}
 
 
 /* Product Benefits */
