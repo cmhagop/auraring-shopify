@@ -43,15 +43,26 @@
   document.querySelectorAll('.faq-item__trigger').forEach(trigger => {
     trigger.addEventListener('click', () => {
       const item = trigger.closest('.faq-item');
+      if (!item) return;
+
       const wasOpen = item.classList.contains('is-open');
+      const parent = item.parentElement;
 
-      // Close all siblings
-      item.closest('.faq-section__list')?.querySelectorAll('.faq-item.is-open').forEach(open => {
-        open.classList.remove('is-open');
-        open.querySelector('.faq-item__trigger')?.setAttribute('aria-expanded', 'false');
-      });
+      // Close all siblings in the same container
+      if (parent) {
+        parent.querySelectorAll(':scope > .faq-item.is-open').forEach(openItem => {
+          if (openItem !== item) {
+            openItem.classList.remove('is-open');
+            openItem.querySelector('.faq-item__trigger')?.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
 
-      if (!wasOpen) {
+      // Toggle state of the clicked item
+      if (wasOpen) {
+        item.classList.remove('is-open');
+        trigger.setAttribute('aria-expanded', 'false');
+      } else {
         item.classList.add('is-open');
         trigger.setAttribute('aria-expanded', 'true');
       }
