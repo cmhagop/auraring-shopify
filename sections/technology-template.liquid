@@ -1,0 +1,205 @@
+{%- comment -%}
+  Technology Template Section
+  Supports all technology page components via blocks.
+{%- endcomment -%}
+
+<div class="tech-page" data-section-id="{{ section.id }}">
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      
+      {%- when 'hero' -%}
+        <section class="tech-hero" {{ block.shopify_attributes }}>
+          <div class="tech-hero__bg">
+            {%- if block.settings.image != blank -%}
+              <img src="{{ block.settings.image | image_url: width: 2000 }}" alt="{{ block.settings.heading }}" loading="eager">
+            {%- else -%}
+              <div class="tech-hero__placeholder"></div>
+            {%- endif -%}
+            <div class="tech-hero__overlay"></div>
+          </div>
+          <div class="page-width">
+            <div class="tech-hero__content reveal">
+              <span class="badge">{{ block.settings.badge | default: "The Innovation" }}</span>
+              <h1>{{ block.settings.heading | default: "Inside AURARING" }}</h1>
+              <p>{{ block.settings.subheading | default: "Clinical-grade sensor technology, miniaturized into a seamless titanium form factor." }}</p>
+            </div>
+          </div>
+        </section>
+
+      {%- when 'intro' -%}
+        <section class="tech-intro section-spacing" {{ block.shopify_attributes }}>
+          <div class="page-width">
+            <div class="tech-intro__inner reveal">
+              <div class="tech-intro__text">
+                {{ block.settings.content | default: "<p>We didn't just build a health tracker; we built a laboratory for your finger. By monitoring arterial pulse from the base of your finger, AURARING captures a signal 10x stronger than wrist-based wearables.</p>" }}
+              </div>
+            </div>
+          </div>
+        </section>
+
+      {%- when 'feature_grid' -%}
+        <section class="tech-features section-spacing" {{ block.shopify_attributes }}>
+          <div class="page-width">
+            {%- if block.settings.heading != blank -%}
+              <div class="tech-section-header reveal">
+                <h2>{{ block.settings.heading }}</h2>
+              </div>
+            {%- endif -%}
+            
+            <div class="tech-features__grid reveal">
+              {%- comment -%} Blocks from here are nested concept but Shopify doesn't support nested blocks well in one loop. 
+                  So we just use the feature_card type directly in the main loop or as separate blocks.
+                  For simplicity, let's just make feature_card its own block type.
+              {%- endcomment -%}
+            </div>
+          </div>
+        </section>
+
+      {%- when 'feature_card' -%}
+        {%- comment -%} These will be grouped by CSS flex/grid if they follow each other {%- endcomment -%}
+        <div class="tech-feature-card reveal" {{ block.shopify_attributes }}>
+          <div class="tech-feature-card__icon">
+            {%- if block.settings.icon != blank -%}
+              <img src="{{ block.settings.icon | image_url: width: 100 }}" alt="{{ block.settings.title }}">
+            {%- else -%}
+              <span class="tech-feature-card__dot"></span>
+            {%- endif -%}
+          </div>
+          <h3>{{ block.settings.title | default: "Advanced Biometrics" }}</h3>
+          <p>{{ block.settings.text | default: "Dual-LED PPG sensors monitor heart rate, HRV, and SpO2 with medical-grade precision." }}</p>
+        </div>
+
+      {%- when 'split_row' -%}
+        <section class="tech-split section-spacing" {{ block.shopify_attributes }}>
+          <div class="page-width">
+            <div class="tech-split__row {% if block.settings.layout == 'media_right' %}tech-split__row--reverse{% endif %} reveal">
+              <div class="tech-split__media">
+                {%- if block.settings.media_video != blank -%}
+                   {{ block.settings.media_video | video_tag: autoplay: true, loop: true, muted: true, controls: false }}
+                {%- elsif block.settings.media_image != blank -%}
+                   <img src="{{ block.settings.media_image | image_url: width: 1200 }}" alt="{{ block.settings.heading }}">
+                {%- else -%}
+                   <div class="tech-placeholder-box"></div>
+                {%- endif -%}
+              </div>
+              <div class="tech-split__content">
+                <h2 class="tech-split__heading">{{ block.settings.heading | default: "Built for endurance." }}</h2>
+                <div class="tech-split__text">
+                  {{ block.settings.text | default: "<p>Crafted from aerospace-grade titanium with a diamond-like carbon coating. Water-resistant to 100m, scratch-resistant, and lighter than a wedding band.</p>" }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      {%- when 'gallery' -%}
+        <section class="tech-gallery section-spacing" {{ block.shopify_attributes }}>
+          <div class="page-width">
+             <div class="tech-gallery__grid reveal">
+                {%- comment -%} Static placeholders or blocks would go here {%- endcomment -%}
+                <div class="tech-gallery__item tech-gallery__item--large"><div class="tech-placeholder-box"></div></div>
+                <div class="tech-gallery__item"><div class="tech-placeholder-box"></div></div>
+                <div class="tech-gallery__item"><div class="tech-placeholder-box"></div></div>
+             </div>
+          </div>
+        </section>
+
+      {%- when 'final_cta' -%}
+        <section class="tech-cta section-spacing" {{ block.shopify_attributes }}>
+          <div class="page-width">
+            <div class="tech-cta__inner reveal">
+              <h2>{{ block.settings.heading | default: "The future is at your fingertips." }}</h2>
+              <p>{{ block.settings.text | default: "Experience the most advanced wearable technology ever engineered." }}</p>
+              <div class="tech-cta__buttons">
+                <a href="{{ block.settings.link | default: '/collections/all' }}" class="btn btn--primary">
+                  {{ block.settings.link_text | default: "Shop AURARING" }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+    {%- endcase -%}
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "Technology Page Content",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "hero",
+      "name": "Hero Section",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "badge", "label": "Badge Text", "default": "The Innovation" },
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Inside AURARING" },
+        { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Clinical-grade sensor technology, miniaturized into a seamless titanium form factor." },
+        { "type": "image_picker", "id": "image", "label": "Background Image" }
+      ]
+    },
+    {
+      "type": "intro",
+      "name": "Intro Text",
+      "settings": [
+        { "type": "richtext", "id": "content", "label": "Intro Content" }
+      ]
+    },
+    {
+      "type": "feature_card",
+      "name": "Feature Card",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Advanced Biometrics" },
+        { "type": "textarea", "id": "text", "label": "Description", "default": "Dual-LED PPG sensors monitor heart rate, HRV, and SpO2 with medical-grade precision." },
+        { "type": "image_picker", "id": "icon", "label": "Icon/Image" }
+      ]
+    },
+    {
+      "type": "split_row",
+      "name": "Split Media Row",
+      "settings": [
+        { "type": "select", "id": "layout", "label": "Layout", "options": [
+            { "value": "media_left", "label": "Media Left" },
+            { "value": "media_right", "label": "Media Right" }
+          ], "default": "media_left" },
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Built for endurance." },
+        { "type": "richtext", "id": "text", "label": "Description" },
+        { "type": "image_picker", "id": "media_image", "label": "Image" },
+        { "type": "video", "id": "media_video", "label": "Video" }
+      ]
+    },
+    {
+      "type": "gallery",
+      "name": "Production Gallery",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "type": "final_cta",
+      "name": "Final CTA",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "The future is at your fingertips." },
+        { "type": "textarea", "id": "text", "label": "Subheading", "default": "Experience the most advanced wearable technology ever engineered." },
+        { "type": "text", "id": "link_text", "label": "Button Text", "default": "Shop AURARING" },
+        { "type": "url", "id": "link", "label": "Button Link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Technology Page",
+      "blocks": [
+        { "type": "hero" },
+        { "type": "intro" },
+        { "type": "feature_card" },
+        { "type": "feature_card" },
+        { "type": "feature_card" },
+        { "type": "split_row" },
+        { "type": "final_cta" }
+      ]
+    }
+  ]
+}
+{% endschema %}
