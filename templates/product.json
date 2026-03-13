@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -90,15 +99,24 @@
       "blocks": {
         "v1": {
           "type": "video_slot",
-          "settings": {}
+          "settings": {
+            "heading": "Feature Insight",
+            "caption": "A deep dive into how this feature improves your daily readiness score."
+          }
         },
         "v2": {
           "type": "video_slot",
-          "settings": {}
+          "settings": {
+            "heading": "Feature Insight",
+            "caption": "A deep dive into how this feature improves your daily readiness score."
+          }
         },
         "v3": {
           "type": "video_slot",
-          "settings": {}
+          "settings": {
+            "heading": "Feature Insight",
+            "caption": "A deep dive into how this feature improves your daily readiness score."
+          }
         }
       },
       "block_order": [
@@ -106,18 +124,27 @@
         "v2",
         "v3"
       ],
-      "settings": {}
+      "settings": {
+        "heading": "See it in action.",
+        "subtext": "A closer look at the precision engineering and elegant design."
+      }
     },
     "reviews": {
       "type": "product-reviews",
       "blocks": {
         "r1": {
           "type": "review",
-          "settings": {}
+          "settings": {
+            "rating": 5,
+            "title": "The only tracker I actually wear.",
+            "text": "<p>I've tried smartwatches and bands, but they always got in the way. This ring is completely invisible to my daily routine, yet delivers the most accurate sleep data I've ever seen.</p>",
+            "author": "Alex R."
+          }
         },
         "r2": {
           "type": "review",
           "settings": {
+            "rating": 5,
             "title": "Game-changer for recovery.",
             "text": "<p>The readiness score dictates my entire training schedule. It’s incredibly accurate and doesn’t look like a piece of plastic tech.</p>",
             "author": "Sarah L."
@@ -126,6 +153,7 @@
         "r3": {
           "type": "review",
           "settings": {
+            "rating": 5,
             "title": "Aesthetics meet data.",
             "text": "<p>Finally, a health tracker that actually looks like high-end jewelry. The 7-day battery life means I actually use it without constantly charging.</p>",
             "author": "David C."
@@ -137,7 +165,9 @@
         "r2",
         "r3"
       ],
-      "settings": {}
+      "settings": {
+        "heading": "What they're saying."
+      }
     }
   },
   "order": [
