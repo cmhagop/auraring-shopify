@@ -33,7 +33,7 @@
           "type": "nav_link",
           "settings": {
             "label": "Technology",
-            "link": ""
+            "link": "/pages/technology"
           }
         },
         "nav-science": {
