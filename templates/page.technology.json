@@ -6,7 +6,7 @@
         "hero_id": {
           "type": "hero",
           "settings": {
-            "badge": "The Innovation",
+            "badge": "THE INNOVATION",
             "heading": "Inside AURARING",
             "subheading": "Clinical-grade sensor technology, miniaturized into a seamless titanium form factor."
           }
@@ -17,50 +17,70 @@
             "content": "<p>We didn't just build a health tracker; we built a laboratory for your finger. By monitoring arterial pulse from the base of your finger, AURARING captures a signal 10x stronger than wrist-based wearables.</p>"
           }
         },
-        "feature_1": {
-          "type": "feature_card",
+        "feature_grid_id": {
+          "type": "feature_grid",
           "settings": {
-            "title": "Dual-LED PPG",
-            "text": "Medical-grade heart rate and HRV monitoring with 99% accuracy."
-          }
-        },
-        "feature_2": {
-          "type": "feature_card",
-          "settings": {
-            "title": "NTC Temperature",
-            "text": "Detect subtle changes in body temperature to predict recovery and illness."
-          }
-        },
-        "feature_3": {
-          "type": "feature_card",
-          "settings": {
-            "title": "3D Accelerometer",
-            "text": "Intelligent activity detection that stays out of your way."
+            "heading": "Precision Engineering",
+            "subheading": "The most advanced sensors ever integrated into a ring.",
+            "title_1": "Dual-LED PPG",
+            "text_1": "Medical-grade heart rate and HRV monitoring with 99% accuracy.",
+            "title_2": "NTC Temperature",
+            "text_2": "Detect subtle changes in body temperature to predict recovery and illness.",
+            "title_3": "3D Accelerometer",
+            "text_3": "Intelligent activity detection that stays out of your way.",
+            "title_4": "Blood Oxygen",
+            "text_4": "Advanced SpO2 sensing for night-time breathing analysis.",
+            "title_5": "Ready Analysis",
+            "text_5": "Sophisticated algorithms that calculate your daily readiness score.",
+            "title_6": "7-Day Power",
+            "text_6": "Efficiency-first design that lasts a full week on one charge."
           }
         },
         "split_1": {
           "type": "split_row",
           "settings": {
             "layout": "media_left",
+            "alternate": false,
+            "badge": "MATERIALS",
             "heading": "Aerospace Grade",
             "text": "<p>Crafted from brushed Grade 5 titanium. It’s lighter than a wedding band but tougher than steel.</p>"
+          }
+        },
+        "split_2": {
+          "type": "split_row",
+          "settings": {
+            "layout": "media_right",
+            "alternate": true,
+            "badge": "RESILIENCE",
+            "heading": "Waterproof Focus",
+            "text": "<p>Engineered to endure. Water-resistant up to 100 meters, so you never have to take it off.</p>"
+          }
+        },
+        "gallery_id": {
+          "type": "gallery",
+          "settings": {
+            "heading": "Craftsmanship",
+            "caption_1": "FORGED TITANIUM",
+            "caption_2": "PRECISION OPTICS",
+            "caption_3": "SEAMLESS DESIGN"
           }
         },
         "cta_id": {
           "type": "final_cta",
           "settings": {
             "heading": "The future is at your fingertips.",
-            "text": "Experience the most advanced wearable technology ever engineered."
+            "text": "Experience the most advanced wearable technology ever engineered.",
+            "link_text": "Shop AURARING"
           }
         }
       },
       "block_order": [
         "hero_id",
         "intro_id",
-        "feature_1",
-        "feature_2",
-        "feature_3",
+        "feature_grid_id",
         "split_1",
+        "split_2",
+        "gallery_id",
         "cta_id"
       ],
       "settings": {}

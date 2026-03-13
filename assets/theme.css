@@ -1354,3 +1354,295 @@
   color: var(--color-text-muted);
   margin-inline: auto; margin-bottom: 36px;
 }
+
+
+
+/* --------------------------------------------------- Technology Page */
+.tech-page {
+  background: var(--color-bg);
+  color: var(--color-text);
+  overflow: hidden;
+}
+
+/* Hero */
+.tech-hero {
+  height: 85vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.tech-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.tech-hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.65;
+}
+.tech-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(10,10,10,0.7) 100%),
+              linear-gradient(180deg, transparent 60%, var(--color-bg) 100%);
+}
+.tech-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.tech-hero__badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 28px;
+}
+.tech-hero__heading {
+  font-size: clamp(2.8rem, 7.5vw, 5.2rem);
+  line-height: 1.05;
+  margin-bottom: 28px;
+  font-weight: 500;
+}
+.tech-hero__subheading {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Intro */
+.tech-intro {
+  padding: 140px 0 100px;
+  text-align: center;
+}
+.tech-intro__inner {
+  max-width: 850px;
+  margin: 0 auto;
+}
+.tech-intro__text {
+  font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+  line-height: 1.8;
+  color: rgba(240,240,240,0.85);
+  font-weight: 400;
+}
+
+/* Features Grid */
+.tech-features {
+  padding: 80px 0 120px;
+}
+.tech-features__header {
+  text-align: center;
+  margin-bottom: 72px;
+}
+.tech-features__header h2 {
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+.tech-features__header p {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+}
+.tech-features__grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(1, 1fr);
+}
+@media (min-width: 750px) {
+  .tech-features__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+}
+
+/* Tech Card */
+.tech-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 48px 36px;
+  border-radius: 20px;
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.tech-card:hover {
+  background: rgba(255,255,255,0.035);
+  border-color: rgba(255,255,255,0.12);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+.tech-card__icon {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 28px;
+  color: var(--color-accent);
+}
+.tech-card__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.tech-card__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 10px var(--color-accent);
+  margin-top: 10px;
+}
+.tech-card__content h3 {
+  font-size: 1.15rem;
+  margin-bottom: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.tech-card__content p {
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  font-size: 0.92rem;
+}
+
+/* Split Row */
+.tech-split {
+  padding: 120px 0;
+}
+.tech-split--alternate {
+  background: rgba(255,255,255,0.015);
+}
+.tech-split__row {
+  display: grid;
+  gap: 50px;
+  align-items: center;
+}
+@media (min-width: 750px) {
+  .tech-split__row {
+    grid-template-columns: 1fr 1fr;
+    gap: 120px;
+  }
+  .tech-split__row--reverse .tech-split__media { order: 2; }
+  .tech-split__row--reverse .tech-split__content { order: 1; }
+}
+.tech-split__media {
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--color-bg-elevated);
+  position: relative;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+}
+.tech-split__image, .tech-split__video {
+  width: 100%;
+  display: block;
+}
+.tech-split__badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 20px;
+}
+.tech-split__heading {
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  margin-bottom: 20px;
+  font-weight: 500;
+  line-height: 1.15;
+}
+.tech-split__text {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(240,240,240,0.7);
+}
+
+/* Gallery */
+.tech-gallery {
+  padding: 100px 0;
+}
+.tech-gallery__header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.tech-gallery__header h2 {
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+}
+.tech-gallery__grid {
+  display: grid;
+  gap: 24px;
+}
+@media (min-width: 750px) {
+  .tech-gallery__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.tech-gallery__item {
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+.tech-gallery__item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.tech-gallery__item:hover img {
+  transform: scale(1.08);
+}
+.tech-gallery__caption {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-top: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.7;
+}
+
+/* CTA */
+.tech-cta {
+  padding: 180px 0;
+  text-align: center;
+}
+.tech-cta__inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.tech-cta__heading {
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  line-height: 1.1;
+  margin-bottom: 28px;
+  font-weight: 500;
+}
+.tech-cta__text {
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  color: var(--color-text-muted);
+  margin-bottom: 56px;
+  line-height: 1.7;
+}
+
+/* Placeholders */
+.tech-placeholder-box {
+  aspect-ratio: 16/10;
+  background: linear-gradient(135deg, #161618 0%, #0d0d0f 100%);
+  border: 1px solid rgba(255,255,255,0.04);
+  position: relative;
+}
+.tech-placeholder-box::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(184,184,192,0.03) 0%, transparent 70%);
+}
