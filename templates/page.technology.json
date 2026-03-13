@@ -4,7 +4,7 @@
       "type": "technology-template",
       "blocks": {
         "hero_id": {
-          "type": "hero",
+          "type": "tech_hero",
           "settings": {
             "badge": "THE INNOVATION",
             "heading": "Inside AURARING",

@@ -7,11 +7,11 @@
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       
-      {%- when 'hero' -%}
+      {%- when 'tech_hero' -%}
         <section class="tech-hero" {{ block.shopify_attributes }}>
           <div class="tech-hero__bg">
-            {%- if block.settings.hero_video != blank -%}
-              {{ block.settings.hero_video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, class: 'tech-hero__video' }}
+            {%- if block.settings.background_video_hosted != blank -%}
+              {{ block.settings.background_video_hosted | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, class: 'tech-hero__video' }}
             {%- elsif block.settings.image != blank -%}
               <img src="{{ block.settings.image | image_url: width: 2400 }}" alt="{{ block.settings.heading }}" loading="eager" class="tech-hero__image">
             {%- else -%}
@@ -158,15 +158,15 @@
   "name": "Technology Page Content",
   "blocks": [
     {
-      "type": "hero",
+      "type": "tech_hero",
       "name": "Hero Section",
       "limit": 1,
       "settings": [
+        { "type": "video", "id": "background_video_hosted", "label": "Background Video" },
+        { "type": "image_picker", "id": "image", "label": "Background Image" },
         { "type": "text", "id": "badge", "label": "Badge Text", "default": "THE INNOVATION" },
         { "type": "text", "id": "heading", "label": "Heading", "default": "Inside AURARING" },
-        { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Clinical-grade sensor technology, miniaturized into a seamless titanium form factor." },
-        { "type": "image_picker", "id": "image", "label": "Background Image" },
-        { "type": "video", "id": "hero_video", "label": "Background Video" }
+        { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Clinical-grade sensor technology, miniaturized into a seamless titanium form factor." }
       ]
     },
     {
@@ -254,7 +254,7 @@
     {
       "name": "Technology Page",
       "blocks": [
-        { "type": "hero" },
+        { "type": "tech_hero" },
         { "type": "intro" },
         { "type": "feature_grid" },
         { "type": "split_row" },
