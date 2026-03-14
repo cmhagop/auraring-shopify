@@ -11,7 +11,7 @@
         <section class="tech-hero" {{ block.shopify_attributes }}>
           <div class="tech-hero__bg">
             {%- if block.settings.background_video_hosted != blank -%}
-              {{ block.settings.background_video_hosted | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, class: 'tech-hero__video' }}
+              {{ block.settings.background_video_hosted | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, preload: 'auto', class: 'tech-hero__video' }}
             {%- elsif block.settings.image != blank -%}
               <img src="{{ block.settings.image | image_url: width: 2400 }}" alt="{{ block.settings.heading }}" loading="eager" class="tech-hero__image">
             {%- else -%}
@@ -85,7 +85,7 @@
             <div class="tech-split__row {% if block.settings.layout == 'media_right' %}tech-split__row--reverse{% endif %}">
               <div class="tech-split__media">
                 {%- if block.settings.media_video != blank -%}
-                   {{ block.settings.media_video | video_tag: autoplay: true, loop: true, muted: true, controls: false, class: 'tech-split__video' }}
+                   {{ block.settings.media_video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, preload: 'auto', class: 'tech-split__video' }}
                 {%- elsif block.settings.media_image != blank -%}
                    <img src="{{ block.settings.media_image | image_url: width: 1200 }}" alt="{{ block.settings.heading }}" class="tech-split__image">
                 {%- else -%}

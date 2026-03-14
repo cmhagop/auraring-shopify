@@ -1,7 +1,7 @@
 <section class="collection-hero" data-section-id="{{ section.id }}">
   <div class="collection-hero__bg">
     {%- if section.settings.video != blank -%}
-      {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, class: 'collection-hero__video' }}
+      {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, preload: 'auto', class: 'collection-hero__video' }}
     {%- elsif section.settings.image != blank -%}
       <img
         src="{{ section.settings.image | image_url: width: 2400 }}"

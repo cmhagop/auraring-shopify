@@ -1767,3 +1767,12 @@
     justify-content: center;
   }
 }
+
+/* --------------------------------------------------- Background Media Fix */
+.collection-hero__video,
+.tech-hero__video,
+.tech-split__video,
+.video-gallery__media video {
+  pointer-events: none;
+  user-select: none;
+}
