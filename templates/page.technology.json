@@ -12,13 +12,13 @@
     "main": {
       "type": "technology-template",
       "blocks": {
-        "hero_id": {
+        "tech_hero_8WhEPJ": {
           "type": "tech_hero",
           "settings": {
-            "badge": "The Innovation",
+            "background_video_hosted": "shopify://files/videos/d27c33adbba713e51908f15a98ad9f65_1773109458.mp4",
+            "badge": "THE INNOVATION",
             "heading": "Inside AURARING",
-            "subheading": "Clinical-grade sensor technology, miniaturized into a seamless titanium form factor.",
-            "image": "shopify://shop_images/aura-hero-lifestyle.png"
+            "subheading": "Clinical-grade sensor technology, miniaturized into a seamless titanium form factor."
           }
         },
         "intro_id": {
@@ -34,7 +34,8 @@
             "alternate": false,
             "badge": "",
             "heading": "Aerospace Grade",
-            "text": "<p>Crafted from brushed Grade 5 titanium. It’s lighter than a wedding band but tougher than steel.</p>"
+            "text": "<p>Crafted from brushed Grade 5 titanium. It’s lighter than a wedding band but tougher than steel.</p>",
+            "media_image": "shopify://shop_images/1772954091755-pgd1t8h6plb.png"
           }
         },
         "cta_id": {
@@ -48,7 +49,7 @@
         }
       },
       "block_order": [
-        "hero_id",
+        "tech_hero_8WhEPJ",
         "intro_id",
         "split_1",
         "cta_id"
