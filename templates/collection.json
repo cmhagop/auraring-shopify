@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -5,7 +14,10 @@
       "settings": {
         "badge": "THE AURA COLLECTION",
         "heading": "Excellence in Form.",
-        "subheading": "Clinical-grade sensor technology, miniaturized into a seamless titanium form factor."
+        "subheading": "Clinical-grade sensor technology, miniaturized into a seamless titanium form factor.",
+        "video": "shopify://files/videos/c93cad0004151e31187d553897ac3fd1_1773177599.mp4",
+        "button_text": "",
+        "button_link": ""
       }
     },
     "main-collection": {
@@ -15,5 +27,8 @@
       }
     }
   },
-  "order": ["hero", "main-collection"]
+  "order": [
+    "hero",
+    "main-collection"
+  ]
 }
