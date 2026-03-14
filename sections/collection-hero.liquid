@@ -1,0 +1,102 @@
+<section class="collection-hero" data-section-id="{{ section.id }}">
+  <div class="collection-hero__bg">
+    {%- if section.settings.video != blank -%}
+      {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, class: 'collection-hero__video' }}
+    {%- elsif section.settings.image != blank -%}
+      <img
+        src="{{ section.settings.image | image_url: width: 2400 }}"
+        alt="{{ section.settings.heading | escape }}"
+        width="{{ section.settings.image.width }}"
+        height="{{ section.settings.image.height }}"
+        loading="eager"
+        fetchpriority="high"
+        class="collection-hero__image"
+      >
+    {%- else -%}
+      <div class="collection-hero__fallback"></div>
+    {%- endif -%}
+    <div class="collection-hero__overlay"></div>
+  </div>
+
+  <div class="page-width">
+    <div class="collection-hero__content">
+      {%- if section.settings.badge != blank -%}
+        <span class="collection-hero__badge">{{ section.settings.badge }}</span>
+      {%- endif -%}
+      <h1 class="collection-hero__heading">{{ section.settings.heading }}</h1>
+      {%- if section.settings.subheading != blank -%}
+        <p class="collection-hero__subheading">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+      {%- if section.settings.button_text != blank and section.settings.button_link != blank -%}
+        <div class="collection-hero__cta">
+          {%- render 'button', 
+            label: section.settings.button_text, 
+            url: section.settings.button_link, 
+            style: 'primary' 
+          -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection Hero",
+  "tag": "section",
+  "class": "collection-hero-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Badge Text",
+      "default": "PREMIUM COLLECTION"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Excellence in Form."
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Discover the culmination of clinical-grade technology and titanium craftsmanship."
+    },
+    {
+      "type": "header",
+      "content": "Background Media"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Background Video"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background Image"
+    },
+    {
+      "type": "header",
+      "content": "Call to Action"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Hero"
+    }
+  ]
+}
+{% endschema %}

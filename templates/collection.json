@@ -1,5 +1,13 @@
 {
   "sections": {
+    "hero": {
+      "type": "collection-hero",
+      "settings": {
+        "badge": "THE AURA COLLECTION",
+        "heading": "Excellence in Form.",
+        "subheading": "Clinical-grade sensor technology, miniaturized into a seamless titanium form factor."
+      }
+    },
     "main-collection": {
       "type": "main-collection-product-grid",
       "settings": {
@@ -7,5 +15,5 @@
       }
     }
   },
-  "order": ["main-collection"]
+  "order": ["hero", "main-collection"]
 }
