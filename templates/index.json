@@ -12,6 +12,7 @@
     "hero": {
       "type": "hero",
       "settings": {
+        "background_video": "shopify://files/videos/6b17c0d192310c4a1fdd98382e21acc4_1773462600.mp4",
         "badge_text": "Next-Gen Wearable",
         "heading": "Precision health.<br>On your finger.",
         "subheading": "Track sleep, heart rate, HRV, and blood oxygen with clinical-grade accuracy — all from a ring you never need to take off.",
