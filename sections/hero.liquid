@@ -1,7 +1,9 @@
 <section class="hero hero--banner" id="hero" data-section-id="{{ section.id }}">
-  <!-- Banner image layer -->
+  <!-- Background Media layer -->
   <div class="hero__media">
-    {%- if section.settings.banner_image -%}
+    {%- if section.settings.video != blank -%}
+      {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, preload: 'auto', class: 'hero__video' }}
+    {%- elsif section.settings.banner_image -%}
       <img
         src="{{ section.settings.banner_image | image_url: width: 2400 }}"
         srcset="{{ section.settings.banner_image | image_url: width: 1200 }} 1200w, {{ section.settings.banner_image | image_url: width: 1800 }} 1800w, {{ section.settings.banner_image | image_url: width: 2400 }} 2400w"
@@ -68,7 +70,10 @@
   "tag": "section",
   "class": "hero-section",
   "settings": [
+    { "type": "header", "content": "Background Media" },
+    { "type": "video", "id": "video", "label": "Background video" },
     { "type": "image_picker", "id": "banner_image", "label": "Banner image" },
+    { "type": "header", "content": "Content" },
     { "type": "text", "id": "badge_text", "label": "Badge text", "default": "Next-Gen Wearable" },
     { "type": "textarea", "id": "heading", "label": "Heading", "default": "Precision health.<br>On your finger." },
     {
@@ -77,6 +82,7 @@
       "label": "Subheading",
       "default": "Track sleep, heart rate, HRV, and blood oxygen with clinical-grade accuracy — all from a ring you never need to take off."
     },
+    { "type": "header", "content": "Buttons" },
     { "type": "text", "id": "button_primary_text", "label": "Primary button text", "default": "Shop Now" },
     { "type": "product", "id": "button_primary_product", "label": "Primary button product" },
     { "type": "url", "id": "button_primary_link", "label": "Primary button link (fallback)", "default": "" },
