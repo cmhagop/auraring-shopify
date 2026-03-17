@@ -1,0 +1,179 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "tab-desc": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Description",
+            "content": "<p>Detailed product information.</p>"
+          }
+        },
+        "tab-specs": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Specifications",
+            "content": "<p>Materials, dimensions, and technical specifications.</p>"
+          }
+        },
+        "tab-ship": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Shipping & Returns",
+            "content": "<p>Free worldwide shipping. 30-day hassle-free returns.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "tab-desc",
+        "tab-specs",
+        "tab-ship"
+      ],
+      "settings": {
+        "show_quick_benefits": true,
+        "show_trust_badges": true
+      }
+    },
+    "test_education": {
+      "type": "test-product-education",
+      "blocks": {
+        "info_card_Ya6dDx": {
+          "type": "info_card",
+          "settings": {
+            "title": "What's in the Box",
+            "text": "<p>Your ring comes with everything you need for 24/7 tracking.</p>",
+            "show_list": true,
+            "list_item_1": "AURARING Titanium Ring",
+            "list_item_2": "Magnetic Charging Dock",
+            "list_item_3": "USB-C to USB-A Cable",
+            "list_item_4": "Quick Start Guide"
+          }
+        },
+        "media_video_8TKLdk": {
+          "type": "media_video",
+          "settings": {
+            "video": "shopify://files/videos/d27c33adbba713e51908f15a98ad9f65_1773109458.mp4"
+          }
+        },
+        "split_row_gzAxYK": {
+          "type": "split_row",
+          "settings": {
+            "layout": "media_left",
+            "image": "shopify://shop_images/aura-hero-lifestyle.png",
+            "heading": "How it works",
+            "text": "<p>A deep dive into the technology powering your ring.</p>"
+          }
+        },
+        "brand_story_hcaaVM": {
+          "type": "brand_story",
+          "settings": {
+            "heading": "Designed to disappear.",
+            "text": "<p>We built AURARING because we believe the most powerful technology is the one you forget you're wearing. No screens, no notifications—just continuous, clinical-grade clarity.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "info_card_Ya6dDx",
+        "media_video_8TKLdk",
+        "split_row_gzAxYK",
+        "brand_story_hcaaVM"
+      ],
+      "settings": {
+        "heading": "Everything you need to know.",
+        "subheading": "Simple setup. Invisible tracking. Incredible insights.",
+        "layout": "text_first"
+      }
+    },
+    "video_gallery": {
+      "type": "product-video-gallery",
+      "blocks": {
+        "v1": {
+          "type": "video_slot",
+          "settings": {
+            "heading": "Feature Insight",
+            "caption": "A deep dive into how this feature improves your daily readiness score."
+          }
+        },
+        "v2": {
+          "type": "video_slot",
+          "settings": {
+            "heading": "Feature Insight",
+            "caption": "A deep dive into how this feature improves your daily readiness score."
+          }
+        },
+        "v3": {
+          "type": "video_slot",
+          "settings": {
+            "heading": "Feature Insight",
+            "caption": "A deep dive into how this feature improves your daily readiness score."
+          }
+        }
+      },
+      "block_order": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "settings": {
+        "heading": "See it in action.",
+        "subtext": "A closer look at the precision engineering and elegant design."
+      }
+    },
+    "reviews": {
+      "type": "product-reviews",
+      "blocks": {
+        "r1": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "The only tracker I actually wear.",
+            "text": "<p>I've tried smartwatches and bands, but they always got in the way. This ring is completely invisible to my daily routine, yet delivers the most accurate sleep data I've ever seen.</p>",
+            "author": "Alex R."
+          }
+        },
+        "r2": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Game-changer for recovery.",
+            "text": "<p>The readiness score dictates my entire training schedule. It’s incredibly accurate and doesn’t look like a piece of plastic tech.</p>",
+            "author": "Sarah L."
+          }
+        },
+        "r3": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Aesthetics meet data.",
+            "text": "<p>Finally, a health tracker that actually looks like high-end jewelry. The 7-day battery life means I actually use it without constantly charging.</p>",
+            "author": "David C."
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ],
+      "settings": {
+        "heading": "What they're saying."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "test_education",
+    "video_gallery",
+    "reviews"
+  ]
+}
