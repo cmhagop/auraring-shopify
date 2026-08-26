@@ -85,15 +85,7 @@
             <input type="hidden" name="form_type" value="product">
             <input type="hidden" name="utf8" value="✓">
             <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-            {%-
-              render 'button',
-              label: 'Add to Cart',
-              style: 'primary',
-              size: 'lg',
-              full: true,
-              type: 'submit',
-              disabled: product.selected_or_first_available_variant.available == false
-            -%}
+            {%- render 'button', label: 'Add to Cart', style: 'primary', size: 'lg', full: true, type: 'submit', disabled: product.selected_or_first_available_variant.available -%}
           </form>
 
           {%- if section.settings.show_trust_badges -%}
@@ -225,3 +217,24 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {%-
+                  render 'button',
+                  label: 'Add to Cart',
+                  style: 'primary',
+                  size: 'lg',
+                  full: true,
+                  type: 'submit',
+                  disabled: product.selected_or_first_available_variant.available == false
+                -%}
+  to: "{%- render 'button', label: 'Add to Cart', style: 'primary', size: 'lg', full:
+    true, type: 'submit', disabled: product.selected_or_first_available_variant.available
+    -%}"
+  position: 3798..3966
+{% endcomment %}
